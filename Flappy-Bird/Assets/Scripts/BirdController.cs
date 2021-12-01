@@ -26,6 +26,8 @@ public class BirdController : MonoBehaviour
     // Is this GameObject a prefab?
     private bool isPrefab = false;
 
+    // The NeuralNetwork which will make decisions
+    private NeuralNetwork brain;
     void Start()
     {
         // Pick a random color for the bird
@@ -46,6 +48,9 @@ public class BirdController : MonoBehaviour
         bottom = -top;
 
         // DisplayDebugInfo("Top = " + top + "\nBottom = " + bottom);
+
+        // Create the brain
+        brain = new NeuralNetwork(new int[3] { 1, 3, 1 });
 
         // Assign references
         rb = GetComponent<Rigidbody2D>();
@@ -89,9 +94,15 @@ public class BirdController : MonoBehaviour
             // Check keypresses
             //if (Input.GetMouseButtonDown(0))
             //    Jump();
-            
+
             // Make random choices 
-            if (Random.Range(0f, 1f) < 0.01f)
+            // if (Random.Range(0f, 1f) < 0.01f)
+            //     Jump();
+
+            // Use the neural network to make predictions
+            Matrix inputs = new Matrix(1, 1);
+            inputs.set(0, 0, 1);
+            if (brain.guess(inputs) == 1)
                 Jump();
 
             // Update the score
