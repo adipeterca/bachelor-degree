@@ -40,9 +40,13 @@ public class GameManagerFB : MonoBehaviour
         birdReference.GetComponent<BirdController>().markAsPrefab();
 
         // Instantiate de birds
-        birds = new GameObject[populationSize];
-        for (int i = 0; i < populationSize; i++)
-            birds[i] = Instantiate(birdReference);
+        if (birds == null)
+        {
+            birds = new GameObject[populationSize];
+            for (int i = 0; i < populationSize; i++)
+                birds[i] = Instantiate(birdReference);
+        }
+        
 
     }
     private void Update()
@@ -64,6 +68,9 @@ public class GameManagerFB : MonoBehaviour
         {
             Time.timeScale = 0;
             Debug.Log("Stopped the game!");
+            // TODO: restart the game with the same birds (to make sure it works properly)
+            // birds = GeneticAlgorithm.getNextGeneration(birds);
+            restartGame();
             return;
         }
 
@@ -74,5 +81,22 @@ public class GameManagerFB : MonoBehaviour
             // Debug.Log("Created a new pipe!");
         }
         
+    }
+
+    // Delete all pipes (except for the pipeRef), reposition all the birds
+    private void restartGame()
+    {
+        // Pipes deletion
+        var pipesToBeDeleted = GameObject.FindGameObjectsWithTag("FullPipe");
+        for (int i = 0; i < pipesToBeDeleted.Length; i++)
+            if (!pipesToBeDeleted[i].GetComponent<PipeController>().isMarkedAsPrefab())
+                Destroy(pipesToBeDeleted[i]);
+
+        for (int i = 0; i < birds.Length; i++)
+            birds[i].GetComponent<BirdController>().reset();
+
+        lastCreatedPipe = Instantiate(pipeReference);
+
+        Time.timeScale = 1;
     }
 }

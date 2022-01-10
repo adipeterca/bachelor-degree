@@ -30,6 +30,18 @@ public class Matrix
                 data[i, j] = Random.Range(min, max);
     }
 
+    // Construct a Matrix object from an existing Matrix object.
+    public Matrix(Matrix m)
+    {
+        data = new float[m.getRows(), m.getColumns()];
+        rows = m.getRows();
+        columns = m.getColumns();
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++)
+                data[i, j] = m.data[i, j];
+    }
+
     // Default rows getter
     public int getRows()
     {
@@ -77,9 +89,14 @@ public class Matrix
     // Matrix addition (element-wise)
     public static Matrix operator+(Matrix m1, Matrix m2)
     {
-        if (m1.getColumns() != m2.getColumns() || m1.getRows() != m2.getRows())
+        if (m1.getColumns() != m2.getColumns())
         {
-            Debug.LogError("Matrix addition with invalid sizes (no match between rows/columns)");
+            Debug.LogError("Matrix addition with invalid sizes (columns): M1 = " + m1.getColumns() + ", M2 = " + m2.getColumns());
+            return null;
+        }
+        if (m1.getRows() != m2.getRows())
+        {
+            Debug.LogError("Matrix addition with invalid sizes (rows): M1 = " + m1.getRows() + ", M2 = " + m2.getRows());
             return null;
         }
 

@@ -69,4 +69,9 @@ public class PipeController : MonoBehaviour
         isPrefab = true;
     }
 
+    public bool isMarkedAsPrefab()
+    {
+        return isPrefab;
+    }
+
 }

@@ -25,9 +25,45 @@ public class GeneticAlgorithm
     // TODO
     static private GameObject[] getBestK(GameObject[] currentGeneration)
     {
+        if (currentGeneration.Length < k)
+        {
+            // Cannot select 'k' elements from a list with less than 'k' elements
+            return null;
+        }
         GameObject[] best = new GameObject[k];
+        float[] scores = new float[k];
+        for (int i = 0; i < currentGeneration.Length; i++)
+        {
+            scores[i] = fitness(currentGeneration[i].GetComponent<BirdController>().getScore());
+        }
 
+        GameObject auxGO;
+        float auxFloat;
+        bool ok;
 
+        do
+        {
+            ok = false;
+            for (int i = 0; i < scores.Length - 1; i++)
+                if (scores[i] > scores[i + 1])
+                {
+                    // Switch scores
+                    auxFloat = scores[i];
+                    scores[i] = scores[i + 1];
+                    scores[i + 1] = auxFloat;
+
+                    // Also switch game objects
+                    auxGO = currentGeneration[i];
+                    currentGeneration[i] = currentGeneration[i + 1];
+                    currentGeneration[i + 1] = auxGO;
+
+                    // Mark ok as true
+                    ok = true;
+                }
+        } while (ok);
+
+        for (int i = 0; i < k; i++)
+            best[i] = currentGeneration[i];
         return best;
     }
 
@@ -64,23 +100,38 @@ public class GeneticAlgorithm
                 {
                     // This should be a deepcopy
                     // But it should deep copy what?
-                    newGeneration[i] = oldGeneration[j].GetComponent<BirdController>().deepCopy();
+                    // Idea - create a new Bird and copy the brain from the previous one
+                    // TO DO! LE: done
+
+                    // Keep the current bird but reset status
+                    newGeneration[i] = oldGeneration[j];
+                    newGeneration[i].GetComponent<BirdController>().reset();
+
                     break;
                 }
         }
 
         // Apply elitism
-        // TODO
+        //GameObject[] elitismList = getBestK(oldGeneration);
+
+        //for (int i = 0; i < elitismList.Length; i++)
+        //    newGeneration[i] = elitismList[i];
+
     }
 
     static private void mutation()
     {
-
+        for (int i = 0; i < newGeneration.Length; i++)
+            newGeneration[i].GetComponent<BirdController>().getBrain().mutate();
     }
 
     static private void crossover()
     {
+        // TODO!
+        // I1 : IH1, HO1
+        // I2: IH2, HO2 -> C1: IH1, HO2, C2: IH2, HO1
 
+        // crossover intre ponderi
     }
 
     // Public function for creating the next generation of gameObjects
@@ -89,8 +140,11 @@ public class GeneticAlgorithm
         oldGeneration = currentGeneration;
         // Not tested, may not work
         selection();
+        Debug.Log("Finished selection...");
         mutation();
+        Debug.Log("Finished mutation...");
         crossover();
+        Debug.Log("Finished crossover...");
 
         return newGeneration;
     }

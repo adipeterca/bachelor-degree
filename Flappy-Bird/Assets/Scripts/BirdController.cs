@@ -49,8 +49,9 @@ public class BirdController : MonoBehaviour
 
         // DisplayDebugInfo("Top = " + top + "\nBottom = " + bottom);
 
-        // Create the brain
-        brain = new NeuralNetwork(new int[3] { 1, 3, 1 });
+        // Create the brain if it does not exist
+        if (brain == null)
+            brain = new NeuralNetwork(new int[3] { 2, 3, 1 });
 
         // Assign references
         rb = GetComponent<Rigidbody2D>();
@@ -96,14 +97,15 @@ public class BirdController : MonoBehaviour
             //    Jump();
 
             // Make random choices 
-            // if (Random.Range(0f, 1f) < 0.01f)
-            //     Jump();
+            if (Random.Range(0f, 1f) < 0.01f)
+                Jump();
 
             // Use the neural network to make predictions
-            Matrix inputs = new Matrix(1, 1);
-            inputs.set(0, 0, 1);
-            if (brain.guess(inputs) == 1)
-                Jump();
+            //Matrix inputs = new Matrix(2, 1);
+            //inputs.set(0, 0, 1);
+            //inputs.set(1, 0, 2);
+            //if (brain.guess(inputs) == 1)
+            //    Jump();
 
             // Update the score
             score += 1;
@@ -165,8 +167,15 @@ public class BirdController : MonoBehaviour
         return score;
     }
 
-    public GameObject deepCopy()
+    public NeuralNetwork getBrain()
     {
-        return Instantiate(gameObject);
+        return brain;
+    }
+
+    // Resets the bird to the original position and sets the default values
+    public void reset()
+    {
+        Start();
+        gameObject.SetActive(true);
     }
 }

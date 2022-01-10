@@ -8,6 +8,8 @@ public class NeuralNetwork
     private Matrix[] weightsArray;
     private Matrix[] biasArray;
 
+    // Chance to mutate
+    private float mutationChance = 0.1f;
 
     // Create a neural network with the configuration provided.
     // Each element of the array represents how many nodes that layer must have.
@@ -27,7 +29,20 @@ public class NeuralNetwork
             weightsArray[i] = new Matrix(layers[i + 1], layers[i], min, max);
 
             // Bias initialization
-            biasArray[i] = new Matrix(layers[i + 1], layers[i], 0f, 1f);
+            biasArray[i] = new Matrix(layers[i + 1], 1, 0f, 1f);
+        }
+    }
+
+    // Construct a new neural network from a given one
+    public NeuralNetwork(NeuralNetwork n)
+    {
+        weightsArray = new Matrix[n.weightsArray.Length];
+        biasArray = new Matrix[n.biasArray.Length];
+
+        for (int i = 0; i < weightsArray.Length; i++)
+        {
+            weightsArray[i] = new Matrix(n.weightsArray[i]);
+            biasArray[i] = new Matrix(n.biasArray[i]);
         }
     }
 
@@ -39,11 +54,15 @@ public class NeuralNetwork
 
         for (int i = 0; i < weightsArray.Length; i++)
         {
+            // Debug.Log("hidden: " + hidden.getRows() + ", " + hidden.getColumns());
+            // Debug.Log("weightsArray[i]: " + weightsArray[i].getRows() + ", " + weightsArray[i].getColumns() + ", i = " + i);
+            // Debug.Log("biasArray[i]: " + biasArray[i].getRows() + ", " + biasArray[i].getColumns() + ", i = " + i);
+
             // Calculate the weighted sum
-            hidden = (weightsArray[i] * inputs) + biasArray[i];
+            hidden = (weightsArray[i] * hidden) + biasArray[i];
 
             // Activate it
-            // sigmoidActivation(hidden);
+            sigmoidActivation(hidden);
         }
 
         // For Flappy Bird only!!
@@ -80,6 +99,57 @@ public class NeuralNetwork
             }
     }
     
-    // must implement cross over
-    // must implement mutation
+    // Mutates with a specific rate the weights of the neural network
+    // Mutation means adding a predefined value to a given weight
+    public void mutate()
+    {
+        for (int i = 0; i < weightsArray.Length; i++)
+        {
+            for (int j = 0; j < weightsArray[i].getRows(); j++)
+                for (int k = 0; k < weightsArray[i].getColumns(); k++)
+                    if (Random.Range(0f, 1f) < mutationChance)
+                    {
+                        float oldValue = weightsArray[i].at(j, k);
+                        oldValue += 0.01f;
+                        weightsArray[i].set(j, k, oldValue);
+                    }
+        }
+    }
+
+    // Crossover implementation
+    // The idea is that we interchange the weights from n1 to n2 by just copying them and return the kids.
+    static public NeuralNetwork[] crossover(NeuralNetwork n1, NeuralNetwork n2)
+    {
+        if (n1.weightsArray.Length != n2.weightsArray.Length)
+        {
+            Debug.LogError("We have a problem...");
+            return null;
+        }
+        NeuralNetwork[] kids = new NeuralNetwork[2];
+        kids[0] = new NeuralNetwork(n1);
+        kids[1] = new NeuralNetwork(n2);
+
+        // Build the first kid
+        for (int i = 0; i < n1.weightsArray.Length; i++)
+        {
+            if (i % 2 == 1)
+            {
+                kids[0].weightsArray[i] = new Matrix(n2.weightsArray[i]);
+                kids[0].biasArray[i] = new Matrix(n2.biasArray[i]);
+            }
+        }
+
+        // Build the second kid
+        for (int i = 0; i < n1.weightsArray.Length; i++)
+        {
+            if (i % 2 == 1)
+            {
+                kids[1].weightsArray[i] = new Matrix(n1.weightsArray[i]);
+                kids[1].biasArray[i] = new Matrix(n1.biasArray[i]);
+            }
+        }
+
+        return kids;
+    }
+
 }
