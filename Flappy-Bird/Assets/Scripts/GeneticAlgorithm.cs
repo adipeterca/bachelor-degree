@@ -8,6 +8,9 @@ public class GeneticAlgorithm
     // The number of individuals which are going to be selected for elitism
     static private int k = 10;
 
+    // The chance that two individuals will perform crossover
+    static private float crossoverChance = 0.4f;
+
     // Fitness scores for each individual
     static private float[] scores;
 
@@ -22,7 +25,11 @@ public class GeneticAlgorithm
         return score;
     }
 
-    // TODO
+    /// <summary>
+    /// Private function for getting the best K individuals (based on their fitness) from a given generation of objects.
+    /// </summary>
+    /// <param name="currentGeneration">the generation to choose from</param>
+    /// <returns>a list containing the best K individuals</returns>
     static private GameObject[] getBestK(GameObject[] currentGeneration)
     {
         if (currentGeneration.Length < k)
@@ -125,13 +132,65 @@ public class GeneticAlgorithm
             newGeneration[i].GetComponent<BirdController>().getBrain().mutate();
     }
 
+    /// <summary>
+    /// Private function that does the crossover over the new generation of individuals.
+    /// </summary>
     static private void crossover()
     {
-        // TODO!
-        // I1 : IH1, HO1
-        // I2: IH2, HO2 -> C1: IH1, HO2, C2: IH2, HO1
+        // A list containing the chances of each individual to be selected for crossover
+        float[] chances = new float[newGeneration.Length];
+        for (int i = 0; i < chances.Length; i++)
+            chances[i] = Random.Range(0.0f, 1.0f);
 
-        // crossover intre ponderi
+        // Sort both lists (individuals and chances alike) in ascending order of chances
+        float auxFloat;
+        GameObject auxGameObject;
+        bool ok;
+
+        do
+        {
+            ok = false;
+            for (int i = 0; i < chances.Length - 1; i++)
+                if (chances[i] > chances[i + 1])
+                {
+                    // Switch chances
+                    auxFloat = chances[i];
+                    chances[i] = chances[i + 1];
+                    chances[i + 1] = auxFloat;
+
+                    // Switch gameObjects
+                    auxGameObject = newGeneration[i];
+                    newGeneration[i] = newGeneration[i + 1];
+                    newGeneration[i + 1] = auxGameObject;
+
+                    // Set ok
+                    ok = true;
+                }
+        } while (ok);
+
+        // Perform crossover only if the chance is smaller than the predefined crossoverChance in the class
+        for (int i = 0; i < chances.Length - 1 && chances[i] <= GeneticAlgorithm.crossoverChance; i += 2)
+        {
+            // If both individuals have chances smaller than the predefined crossoverChance, do crossover
+            if (chances[i + 1] < GeneticAlgorithm.crossoverChance)
+            {
+                NeuralNetwork.crossover(
+                    newGeneration[i].GetComponent<BirdController>().getBrain(),
+                    newGeneration[i + 1].GetComponent<BirdController>().getBrain()
+                    );
+            }
+            else
+            {
+                // If the second individual has a higher chance than the crossoverChance
+                if (Random.Range(0, 1) == 1)
+                {
+                    NeuralNetwork.crossover(
+                        newGeneration[i].GetComponent<BirdController>().getBrain(),
+                        newGeneration[i + 1].GetComponent<BirdController>().getBrain()
+                    );
+                }
+            }
+        }
     }
 
     // Public function for creating the next generation of gameObjects

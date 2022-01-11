@@ -116,14 +116,23 @@ public class NeuralNetwork
         }
     }
 
-    // Crossover implementation
-    // The idea is that we interchange the weights from n1 to n2 by just copying them and return the kids.
-    static public NeuralNetwork[] crossover(NeuralNetwork n1, NeuralNetwork n2)
+
+    /// <summary>
+    /// Public function for applying crossover to two given neural networks.
+    /// The crossover is done in-place.
+    /// 
+    /// The idea is to switch each others set of weights from one layer to the next, meaning that, given
+    /// two neural networks A1 and A2, with layers I_H_1, H_O_1, I_H_2, H_O_2, the resulting kids will be
+    /// B1 with I_H_1, H_O_2 and B2 with I_H_2, H_O_1.
+    /// </summary>
+    /// <param name="n1">the first individual for crossover</param>
+    /// <param name="n2">the second individual for crossover</param>
+    static public void crossover(NeuralNetwork n1, NeuralNetwork n2)
     {
         if (n1.weightsArray.Length != n2.weightsArray.Length)
         {
             Debug.LogError("We have a problem...");
-            return null;
+            return;
         }
         NeuralNetwork[] kids = new NeuralNetwork[2];
         kids[0] = new NeuralNetwork(n1);
@@ -149,7 +158,9 @@ public class NeuralNetwork
             }
         }
 
-        return kids;
+        // Update the values
+        n1 = kids[0];
+        n2 = kids[1];
     }
 
 }
