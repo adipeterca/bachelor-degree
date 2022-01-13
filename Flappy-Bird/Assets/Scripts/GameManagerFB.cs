@@ -112,7 +112,9 @@ public class GameManagerFB : MonoBehaviour
 
         // Then reset all the birds
         for (int i = 0; i < birds.Length; i++)
+        {
             birds[i].GetComponent<BirdController>().reset();
+        }
 
         lastCreatedPipe = Instantiate(pipeReference);
 
@@ -128,7 +130,7 @@ public class GameManagerFB : MonoBehaviour
     {
         int activeBirds = 0;
         foreach (var bird in birds)
-            if (bird.activeSelf)
+            if (!bird.GetComponent<BirdController>().getHitStatus())
                 activeBirds++;
 
         Debug.Log("active birds " + time + ": " + activeBirds);

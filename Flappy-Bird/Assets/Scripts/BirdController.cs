@@ -5,6 +5,9 @@ using UnityEngine;
 // Script used to control the movement of a bird instance.
 public class BirdController : MonoBehaviour
 {
+    // Useful for debugging
+    public string UUID;
+
     // The jump force multiplier 
     public float jumpForceMultiplier;
 
@@ -28,6 +31,7 @@ public class BirdController : MonoBehaviour
 
     // The NeuralNetwork which will make decisions
     private NeuralNetwork brain;
+
     void Start()
     {
         // Pick a random color for the bird
@@ -42,13 +46,16 @@ public class BirdController : MonoBehaviour
         // Assign references
         rb = GetComponent<Rigidbody2D>();
 
+        // Assign UUID
+        UUID = System.Guid.NewGuid().ToString();
+
         // Assign values
         InitState();
     }
 
     void Update()
     {
-        Debug.Log("[DEBUG] [FROM BirdController.Update()] Position: " + transform.position);
+        // Debug.Log("[DEBUG] [FROM BirdController.Update()] Position: " + transform.position);
 
         // Don't take any action if the gameObject is marked as a Prefab
         if (isPrefab) return;
@@ -78,8 +85,8 @@ public class BirdController : MonoBehaviour
             // Ignore everything else if the bird hit something
             if (hitStatus)
             {
-                // Slide to the left at a constant speed
-                transform.position += new Vector3(-5.0f / Time.deltaTime, 0f, 0f);
+                // Slide to the left at a constant speed (useful for nice viewing when playing the game)
+                // transform.position += new Vector3(-5.0f / Time.deltaTime, 0f, 0f);
                 return;
             }
 
@@ -87,17 +94,17 @@ public class BirdController : MonoBehaviour
             //if (Input.GetMouseButtonDown(0))
             //    Jump();
 
-            // Make random choices 
-            //if (Random.Range(0f, 1f) < 0.01f)
-            //    Jump();
+            // Make random choices
+            if (Random.Range(0f, 1f) < 0.01f)
+                Jump();
 
             // Use the neural network to make predictions
-            Matrix inputs = new Matrix(2, 1);
-            inputs.set(0, 0, 1);
-            inputs.set(1, 0, 2);
+            //Matrix inputs = new Matrix(2, 1);
+            //inputs.set(0, 0, 1);
+            //inputs.set(1, 0, 2);
 
-            if (brain.guess(inputs) == 1)
-                Jump();
+            //if (brain.guess(inputs) == 1)
+            //    Jump();
 
             // Update the score
             score += 1;
@@ -122,6 +129,8 @@ public class BirdController : MonoBehaviour
         hitStatus = false;
 
         bottom = -top;
+
+        transform.position = new Vector3(0, 0, 0);
     }
 
     void Jump()
@@ -162,6 +171,8 @@ public class BirdController : MonoBehaviour
             // We don't destroy the gameObject, because we want to access the score for later user in the GA
             // Destroy(gameObject, 2);
             gameObject.SetActive(false);
+
+            Debug.Log("[DEBUG] [FROM BirdController.OnTriggerEnter2D()] UUID of object set to inactive: " + UUID);
         }
     }
 
@@ -188,11 +199,10 @@ public class BirdController : MonoBehaviour
     // Resets the bird to the original position and sets the default values
     public void reset()
     {
-        Debug.Log("[DEBUG] [FROM BirdController.reset()] Position 1: " + transform.position);
-
         // Only reset the values, not the references or other unique stuff
         InitState();
+
+        // Set the game object as active
         gameObject.SetActive(true);
-        Debug.Log("[DEBUG] [FROM BirdController.reset()] Position 2: " + transform.position);
     }
 }
