@@ -5,11 +5,15 @@ using UnityEngine;
 // Neural network class used in the NEAT algorithm
 public class NeuralNetwork
 {
+    
     private Matrix[] weightsArray;
     private Matrix[] biasArray;
 
     // Chance to mutate
     private float mutationChance = 0.1f;
+
+    // For debugging purposes
+    public System.Guid UUID = System.Guid.NewGuid();
 
     // Create a neural network with the configuration provided.
     // Each element of the array represents how many nodes that layer must have.

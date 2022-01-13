@@ -27,8 +27,15 @@ public class GameManagerFB : MonoBehaviour
     // Bird reference list
     private GameObject[] birds;
 
+    // Number of maximum frames per second
+    private int targetFrameRate = 60;
+
     private void Start()
     {
+        // Framerate settings
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
+
         // Mark the reference as a prefab
         pipeReference.GetComponent<PipeController>().markAsPrefab();
 
@@ -67,9 +74,13 @@ public class GameManagerFB : MonoBehaviour
         if (noMoreBirds)
         {
             Time.timeScale = 0;
-            Debug.Log("Stopped the game!");
-            // TODO: restart the game with the same birds (to make sure it works properly)
-            // birds = GeneticAlgorithm.getNextGeneration(birds);
+            Debug.Log("[INFO] Stopped the game!");
+
+            birds = GeneticAlgorithm.getNextGeneration(birds);
+
+            //Debug.Log("[DEBUG] Stopped the game for debugging reasons.");
+            //Time.timeScale = 0;
+
             restartGame();
             return;
         }
@@ -86,17 +97,33 @@ public class GameManagerFB : MonoBehaviour
     // Delete all pipes (except for the pipeRef), reposition all the birds
     private void restartGame()
     {
-        // Pipes deletion
+        // First delete the pipes
         var pipesToBeDeleted = GameObject.FindGameObjectsWithTag("FullPipe");
         for (int i = 0; i < pipesToBeDeleted.Length; i++)
             if (!pipesToBeDeleted[i].GetComponent<PipeController>().isMarkedAsPrefab())
                 Destroy(pipesToBeDeleted[i]);
 
+        // Then reset all the birds
         for (int i = 0; i < birds.Length; i++)
             birds[i].GetComponent<BirdController>().reset();
 
         lastCreatedPipe = Instantiate(pipeReference);
 
         Time.timeScale = 1;
+        Debug.Log("[INFO] Restarted the game!");
+    }
+
+    /// <summary>
+    /// Debug function for displaying to console how many birds are active (as GameObjects).
+    /// </summary>
+    /// <param name="time">at which moment does the calculation take place (can be used as a unique identifier when debugging)</param>
+    private void debugActiveBirds(string time)
+    {
+        int activeBirds = 0;
+        foreach (var bird in birds)
+            if (bird.activeSelf)
+                activeBirds++;
+
+        Debug.Log("active birds " + time + ": " + activeBirds);
     }
 }

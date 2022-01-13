@@ -33,21 +33,7 @@ public class BirdController : MonoBehaviour
         // Pick a random color for the bird
         gameObject.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 
-        // Initial score value
-        score = 0;
-
-        // Set hit status
-        hitStatus = false;
-
-        // Other default values
-        // Mass = 10
-        // Gravity = 3
-        // JumpForceMultiplier = 5
-
         top = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
-        bottom = -top;
-
-        // DisplayDebugInfo("Top = " + top + "\nBottom = " + bottom);
 
         // Create the brain if it does not exist
         if (brain == null)
@@ -55,10 +41,15 @@ public class BirdController : MonoBehaviour
 
         // Assign references
         rb = GetComponent<Rigidbody2D>();
+
+        // Assign values
+        InitState();
     }
 
     void Update()
     {
+        Debug.Log("[DEBUG] [FROM BirdController.Update()] Position: " + transform.position);
+
         // Don't take any action if the gameObject is marked as a Prefab
         if (isPrefab) return;
 
@@ -97,19 +88,40 @@ public class BirdController : MonoBehaviour
             //    Jump();
 
             // Make random choices 
-            if (Random.Range(0f, 1f) < 0.01f)
-                Jump();
+            //if (Random.Range(0f, 1f) < 0.01f)
+            //    Jump();
 
             // Use the neural network to make predictions
-            //Matrix inputs = new Matrix(2, 1);
-            //inputs.set(0, 0, 1);
-            //inputs.set(1, 0, 2);
-            //if (brain.guess(inputs) == 1)
-            //    Jump();
+            Matrix inputs = new Matrix(2, 1);
+            inputs.set(0, 0, 1);
+            inputs.set(1, 0, 2);
+
+            if (brain.guess(inputs) == 1)
+                Jump();
 
             // Update the score
             score += 1;
         }
+    }
+
+    /// <summary>
+    /// Private function used for setting initial values to some variables of this class.
+    /// It was created because in Start() only references are set (the Start() function calls this function too).
+    /// </summary>
+    void InitState()
+    {
+        // Other default values
+        // Mass = 10
+        // Gravity = 3
+        // JumpForceMultiplier = 5
+
+        // Initial score value
+        score = 0;
+
+        // Set hit status
+        hitStatus = false;
+
+        bottom = -top;
     }
 
     void Jump()
@@ -121,6 +133,7 @@ public class BirdController : MonoBehaviour
 
         // DisplayDebugInfo("Jumped");
     }
+    
     void CancelVelocity()
     {
         rb.velocity = new Vector2(0, 0);
@@ -175,7 +188,11 @@ public class BirdController : MonoBehaviour
     // Resets the bird to the original position and sets the default values
     public void reset()
     {
-        Start();
+        Debug.Log("[DEBUG] [FROM BirdController.reset()] Position 1: " + transform.position);
+
+        // Only reset the values, not the references or other unique stuff
+        InitState();
         gameObject.SetActive(true);
+        Debug.Log("[DEBUG] [FROM BirdController.reset()] Position 2: " + transform.position);
     }
 }
