@@ -76,6 +76,13 @@ public class GameManagerFB : MonoBehaviour
             Time.timeScale = 0;
             Debug.Log("[INFO] Stopped the game!");
 
+            // 13 JAN
+            // NeuralNetwork[] brains = new NeuralNetork[birds.Length];
+            // brains = GeneticAlgorithm.getNextGeneration(brains);
+            // foreach (int i = 0; i < birds.Length; i++)
+            //      birds[i] = Instantiate(birdReference);
+            //      birds[i].setBrain(brains[i]); // maybe implement smth like NeuralNetwork.DeepCopy(brains[i])
+
             birds = GeneticAlgorithm.getNextGeneration(birds);
 
             //Debug.Log("[DEBUG] Stopped the game for debugging reasons.");
