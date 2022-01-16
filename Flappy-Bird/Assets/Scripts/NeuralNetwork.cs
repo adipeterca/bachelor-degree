@@ -51,7 +51,9 @@ public class NeuralNetwork
     }
 
     // Public function which implements the feed-forward algorithm.
-    // The return value is argmax(output) OR true/false if it is only one output value (it is compared with 0.5 - greater means true, lower/equal means false)
+    // 
+    // The return value is argmax(output) OR true/false if it is only one output value
+    // (it is compared with 0.5 - greater means true, lower/equal means false) (NOT ACCURATE ANYMORE)
     public int guess(Matrix inputs)
     {
         Matrix hidden = inputs;
@@ -70,7 +72,8 @@ public class NeuralNetwork
         }
 
         // For Flappy Bird only!!
-        return (hidden.at(0, 0) > 0.5f ? 1 : 0);
+        return (hidden.at(0, 0) > 0.1f ? 1 : 0);
+        // return (hidden.at(0, 0) > hidden.at(1, 0) ? 1 : 0);
     }
 
     // Applies sigmoid activation on a given matrix (in-place)

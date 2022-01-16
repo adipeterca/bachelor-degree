@@ -130,6 +130,8 @@ public class BirdController : MonoBehaviour
             // Set bottom pipe y position
             inputs.set(4, 0, (closestPipe.transform.position.y - 2.0f) / 4.5f);
 
+            Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: " + inputs);
+
             if (brain.guess(inputs) == 1)
                 Jump();
 

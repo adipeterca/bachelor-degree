@@ -53,8 +53,9 @@ public class GameManagerFB : MonoBehaviour
             for (int i = 0; i < populationSize; i++)
                 birds[i] = Instantiate(birdReference);
         }
-        
-        
+
+        // Try to speed up the game
+        Time.timeScale = 2.0f;
     }
     private void Update()
     {
@@ -119,6 +120,9 @@ public class GameManagerFB : MonoBehaviour
         lastCreatedPipe = Instantiate(pipeReference);
 
         Time.timeScale = 1;
+
+        // Try to speed up the game
+        Time.timeScale = 2.0f;
         Debug.Log("[INFO] Restarted the game!");
     }
 

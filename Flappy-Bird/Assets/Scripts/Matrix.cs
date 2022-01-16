@@ -86,6 +86,21 @@ public class Matrix
         data[row, column] = value;
     }
 
+    override public string ToString()
+    {
+        string info = "[";
+
+        for (int i = 0; i < rows; i++)
+        {
+            info += "[";
+            for (int j = 0; j < columns; j++)
+                info += (data[i, j] + ", ");
+            info += "], ";
+        }
+        info += "]";
+        return info;
+    }
+
     // Matrix addition (element-wise)
     public static Matrix operator+(Matrix m1, Matrix m2)
     {
