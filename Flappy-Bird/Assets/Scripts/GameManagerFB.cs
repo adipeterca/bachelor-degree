@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerFB : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameManagerFB : MonoBehaviour
 
     // Number of birds (initial population size)
     public int populationSize;
+
+    // Reference for generation count text
+    public Text generationCountText;
 
     // It should have a starting speed that updates every frame, to speed up the game
 
@@ -29,6 +33,9 @@ public class GameManagerFB : MonoBehaviour
 
     // Number of maximum frames per second
     private int targetFrameRate = 60;
+
+    // Number of generations
+    private int numberOfGenerations = 1;
 
     private void Start()
     {
@@ -53,6 +60,9 @@ public class GameManagerFB : MonoBehaviour
             for (int i = 0; i < populationSize; i++)
                 birds[i] = Instantiate(birdReference);
         }
+
+        // Set the generation count
+        generationCountText.text = "Generation: " + numberOfGenerations;
 
         // Try to speed up the game
         Time.timeScale = 2.0f;
@@ -120,6 +130,9 @@ public class GameManagerFB : MonoBehaviour
         lastCreatedPipe = Instantiate(pipeReference);
 
         Time.timeScale = 1;
+
+        // Set the generation count
+        generationCountText.text = "Generation: " + numberOfGenerations;
 
         // Try to speed up the game
         Time.timeScale = 2.0f;

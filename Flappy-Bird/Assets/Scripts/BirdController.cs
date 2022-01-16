@@ -50,7 +50,7 @@ public class BirdController : MonoBehaviour
             // - the x position of the closest pipe
             // - the y position of the top pipe (calculated by adding +2 to the y position of the Pipe object)
             // - the y position of the bottom pipe (calculated by adding -2 to the y position of the Pipe object)
-            brain = new NeuralNetwork(new int[3] { 5, 20, 1 });
+            brain = new NeuralNetwork(new int[3] { 5, 40, 2 });
 
         // Assign references
         rb = GetComponent<Rigidbody2D>();

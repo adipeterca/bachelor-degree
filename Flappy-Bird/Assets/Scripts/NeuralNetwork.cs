@@ -72,8 +72,8 @@ public class NeuralNetwork
         }
 
         // For Flappy Bird only!!
-        return (hidden.at(0, 0) > 0.1f ? 1 : 0);
-        // return (hidden.at(0, 0) > hidden.at(1, 0) ? 1 : 0);
+        // return (hidden.at(0, 0) > 0.9f ? 1 : 0);
+        return (hidden.at(0, 0) > hidden.at(1, 0) ? 1 : 0);
     }
 
     // Applies sigmoid activation on a given matrix (in-place)

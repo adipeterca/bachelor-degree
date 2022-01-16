@@ -9,7 +9,7 @@ public class GeneticAlgorithm
     static private int k = 10;
 
     // The chance that two individuals will perform crossover
-    static private float crossoverChance = 0.4f;
+    static private float crossoverChance = 0.3f;
 
     // Fitness scores for each individual
     static private float[] scores;
