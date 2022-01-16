@@ -132,6 +132,7 @@ public class GameManagerFB : MonoBehaviour
         Time.timeScale = 1;
 
         // Set the generation count
+        numberOfGenerations++;
         generationCountText.text = "Generation: " + numberOfGenerations;
 
         // Try to speed up the game
