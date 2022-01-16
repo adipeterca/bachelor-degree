@@ -105,20 +105,13 @@ public class GeneticAlgorithm
             for (int j = 0; j < q.Length - 1; j++)
                 if (q[j] < r && r <= q[j + 1])
                 {
-                    // This should be a deepcopy
-                    // But it should deep copy what?
-                    // Idea - create a new Bird and copy the brain from the previous one
-                    // TO DO! LE: done
-
-                    // Keep the current bird but reset status
-                    newGeneration[i] = oldGeneration[j];
-                    newGeneration[i].GetComponent<BirdController>().reset();
-
+                    // Clone the bird
+                    newGeneration[i] = oldGeneration[j].GetComponent<BirdController>().deepCopy();
                     break;
                 }
         }
 
-        // Apply elitism
+        //// Apply elitism
         //GameObject[] elitismList = getBestK(oldGeneration);
 
         //for (int i = 0; i < elitismList.Length; i++)
@@ -129,7 +122,9 @@ public class GeneticAlgorithm
     static private void mutation()
     {
         for (int i = 0; i < newGeneration.Length; i++)
+        {
             newGeneration[i].GetComponent<BirdController>().getBrain().mutate();
+        }
     }
 
     /// <summary>
@@ -200,6 +195,7 @@ public class GeneticAlgorithm
         // return currentGeneration;
 
         oldGeneration = currentGeneration;
+
         // Not tested, may not work
         selection();
         Debug.Log("Finished selection...");
@@ -208,6 +204,10 @@ public class GeneticAlgorithm
         crossover();
         Debug.Log("Finished crossover...");
 
+        // Destroy the old generation of birds
+        for (int i = 0; i < oldGeneration.Length; i++)
+            GameObject.Destroy(oldGeneration[i]);
+        
         return newGeneration;
     }
 }

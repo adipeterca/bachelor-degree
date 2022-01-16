@@ -41,7 +41,11 @@ public class BirdController : MonoBehaviour
 
         // Create the brain if it does not exist
         if (brain == null)
-            brain = new NeuralNetwork(new int[3] { 2, 3, 1 });
+            // The neural network will receive as input:
+            // - the y position of the bird (must be normalized)
+            // - the velocity (must be normalized)
+            // - the x position of the closest pipe
+            brain = new NeuralNetwork(new int[3] { 3, 20, 1 });
 
         // Assign references
         rb = GetComponent<Rigidbody2D>();
@@ -86,7 +90,7 @@ public class BirdController : MonoBehaviour
             if (hitStatus)
             {
                 // Slide to the left at a constant speed (useful for nice viewing when playing the game)
-                // transform.position += new Vector3(-5.0f / Time.deltaTime, 0f, 0f);
+                transform.position += new Vector3(-5.0f / Time.deltaTime, 0f, 0f);
                 return;
             }
 
@@ -98,13 +102,29 @@ public class BirdController : MonoBehaviour
             if (Random.Range(0f, 1f) < 0.01f)
                 Jump();
 
-            // Use the neural network to make predictions
-            //Matrix inputs = new Matrix(2, 1);
-            //inputs.set(0, 0, 1);
-            //inputs.set(1, 0, 2);
+            // Debug.Log("[DEBUG] [FROM BirdController.Update()] Velocity: " + rb.velocity.y);
 
-            //if (brain.guess(inputs) == 1)
-            //    Jump();
+            // Use the neural network to make predictions
+            Matrix inputs = new Matrix(3, 1);
+            
+            // The y position of the bird (between [-4.5f, 4.5f]
+            inputs.set(0, 0, transform.position.y / 4.5f);
+
+            // The y velocity of the bird (divided by 100)
+            inputs.set(1, 0, rb.velocity.y / 100.0f);
+
+            // The x position of the closest pipe
+            GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
+            int closest = -1;
+            for (int i = 0; i < pipes.Length; i++)
+                if (pipes[i].transform.position.x > transform.position.x && (closest == -1 || pipes[closest].transform.position.x > pipes[i].transform.position.x))
+                    closest = i;
+
+            // The screen width is about 15 units, so normalize it by that value
+            inputs.set(2, 0, pipes[closest].transform.position.x / 15.0f);
+
+            if (brain.guess(inputs) == 1)
+                Jump();
 
             // Update the score
             score += 1;
@@ -204,5 +224,24 @@ public class BirdController : MonoBehaviour
 
         // Set the game object as active
         gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Public function for returning a deep copy (a clone) of this particular game object.
+    /// It deep clones the Neural Network of the object and also resets it's default values.
+    /// </summary>
+    /// <returns>the reqeusted clone</returns>
+    public GameObject deepCopy()
+    {
+        // Stanard cloning
+        GameObject clone = GameObject.Instantiate<GameObject>(gameObject);
+
+        // Clone the brain
+        clone.GetComponent<BirdController>().brain = new NeuralNetwork(brain);
+
+        // Reset to default values
+        clone.GetComponent<BirdController>().reset();
+
+        return clone;
     }
 }
