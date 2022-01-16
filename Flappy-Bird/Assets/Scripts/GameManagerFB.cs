@@ -54,7 +54,7 @@ public class GameManagerFB : MonoBehaviour
                 birds[i] = Instantiate(birdReference);
         }
         
-
+        
     }
     private void Update()
     {

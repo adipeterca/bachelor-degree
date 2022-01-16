@@ -237,7 +237,7 @@ MonoBehaviour:
     type: 3}
   birdReference: {fileID: 5551431928084803603, guid: 241ce91590e80d140bd3bd8e9b189e1c,
     type: 3}
-  populationSize: 10
+  populationSize: 100
   distanceBetweenPipes: 15
 --- !u!4 &884720107
 Transform:
