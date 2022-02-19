@@ -14,8 +14,17 @@ public class GameManagerFB : MonoBehaviour
     // Number of birds (initial population size)
     public int populationSize;
 
-    // Reference for generation count text
+    // Reference for generation count text object
     public Text generationCountText;
+
+    // Reference for current score text object
+    public Text currentScoreText;
+
+    // Reference for the number of remianing birds text object
+    public Text remainingBirdsText;
+
+    // Reference for the highest score text object
+    public Text highestScoreText;
 
     // It should have a starting speed that updates every frame, to speed up the game
 
@@ -36,6 +45,27 @@ public class GameManagerFB : MonoBehaviour
 
     // Number of generations
     private int numberOfGenerations = 1;
+
+    // The highest (or current) score of the current generation
+    private int currentScore = 0;
+
+    // Number of remaining birds in the current generation
+    private int remainingBirds;
+
+    // Highest score of all generations
+    private int highestScore = 0;
+
+    // Time speed up
+    // private float timeSpeedUp = 1.0f;
+
+    //private static GameManagerFB instance;
+
+    //public static GameManagerFB getInstance()
+    //{
+    //    if (instance == null)
+    //        instance = new GameManagerFB();
+    //    return instance;
+    //}
 
     private void Start()
     {
@@ -64,8 +94,18 @@ public class GameManagerFB : MonoBehaviour
         // Set the generation count
         generationCountText.text = "Generation: " + numberOfGenerations;
 
+        // Set the current score
+        currentScoreText.text = "Current score: " + currentScore;
+
+        // Set the number of remaining birds
+        remainingBirds = populationSize;
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
+
+        // Set the highest score
+        highestScoreText.text = "Highest score: " + highestScore;
+
         // Try to speed up the game
-        Time.timeScale = 2.0f;
+        // Time.timeScale = timeSpeedUp;
     }
     private void Update()
     {
@@ -73,13 +113,31 @@ public class GameManagerFB : MonoBehaviour
         if (Time.timeScale == 0)
             return;
 
+        // Update score information
+        currentScore++;
+        currentScoreText.text = "Current score: " + currentScore;
+
+        // Update highest score
+        if (currentScore > highestScore)
+        {
+            highestScore = currentScore;
+            highestScoreText.text = "Highest score: " + highestScore + "\n(on generation " + numberOfGenerations + ")";
+        }
+
         // Are there any birds left?
         bool noMoreBirds = true;
+        remainingBirds = 0;
         for (int i = 0; i < populationSize; i++)
         {
             if (!birds[i].GetComponent<BirdController>().getHitStatus())
+            {
                 noMoreBirds = false;
+                remainingBirds++;
+            }
         }
+
+        // Update text information
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
 
         // If no more birds are left, restart the iteration
         if (noMoreBirds)
@@ -135,8 +193,16 @@ public class GameManagerFB : MonoBehaviour
         numberOfGenerations++;
         generationCountText.text = "Generation: " + numberOfGenerations;
 
+        // Set the current score
+        currentScore = 0;
+        currentScoreText.text = "Current score: " + currentScore;
+
+        // Set the number of remaining birds
+        remainingBirds = populationSize;
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
+
         // Try to speed up the game
-        Time.timeScale = 2.0f;
+        // Time.timeScale = timeSpeedUp;
         Debug.Log("[INFO] Restarted the game!");
     }
 

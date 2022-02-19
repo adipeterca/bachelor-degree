@@ -9,7 +9,10 @@ public class GeneticAlgorithm
     static private int k = 10;
 
     // The chance that two individuals will perform crossover
-    static private float crossoverChance = 0.3f;
+    static private float crossoverChance = 0.7f;
+
+    // The chance that an individual will mutate
+    static private float mutationChance = 0.03f;
 
     // Fitness scores for each individual
     static private float[] scores;
@@ -123,7 +126,7 @@ public class GeneticAlgorithm
     {
         for (int i = 0; i < newGeneration.Length; i++)
         {
-            newGeneration[i].GetComponent<BirdController>().getBrain().mutate();
+            newGeneration[i].GetComponent<BirdController>().getBrain().mutate(mutationChance);
         }
     }
 

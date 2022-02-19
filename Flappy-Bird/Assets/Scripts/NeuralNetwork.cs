@@ -5,12 +5,8 @@ using UnityEngine;
 // Neural network class used in the NEAT algorithm
 public class NeuralNetwork
 {
-    
     private Matrix[] weightsArray;
     private Matrix[] biasArray;
-
-    // Chance to mutate
-    private float mutationChance = 0.1f;
 
     // For debugging purposes
     public System.Guid UUID = System.Guid.NewGuid();
@@ -26,11 +22,11 @@ public class NeuralNetwork
 
         for (int i = 0; i < layers.Length - 1; i++)
         {
-            float min = -(1.0f / Mathf.Sqrt(layers[i]));
-            float max = (1.0f / Mathf.Sqrt(layers[i]));
+            // float min = -(1.0f / Mathf.Sqrt(layers[i]));
+            // float max = (1.0f / Mathf.Sqrt(layers[i]));
 
             // Weights initialization
-            weightsArray[i] = new Matrix(layers[i + 1], layers[i], min, max);
+            weightsArray[i] = new Matrix(layers[i + 1], layers[i], -1.0f, 1.0f);
 
             // Bias initialization
             biasArray[i] = new Matrix(layers[i + 1], 1, 0f, 1f);
@@ -108,16 +104,16 @@ public class NeuralNetwork
     
     // Mutates with a specific rate the weights of the neural network
     // Mutation means adding a predefined value to a given weight
-    public void mutate()
+    public void mutate(float chance)
     {
         for (int i = 0; i < weightsArray.Length; i++)
         {
             for (int j = 0; j < weightsArray[i].getRows(); j++)
                 for (int k = 0; k < weightsArray[i].getColumns(); k++)
-                    if (Random.Range(0f, 1f) < mutationChance)
+                    if (Random.Range(0f, 1f) < chance)
                     {
                         float oldValue = weightsArray[i].at(j, k);
-                        oldValue += 0.01f;
+                        oldValue += Random.Range(-0.1f, 0.1f);
                         weightsArray[i].set(j, k, oldValue);
                     }
         }

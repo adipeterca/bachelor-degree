@@ -104,8 +104,8 @@ public class BirdController : MonoBehaviour
             //    Jump();
 
             // Make random choices
-            if (Random.Range(0f, 1f) < 0.01f)
-                Jump();
+            //if (Random.Range(0f, 1f) < 0.01f)
+            //    Jump();
 
             // Debug.Log("[DEBUG] [FROM BirdController.Update()] Velocity: " + rb.velocity.y);
 
@@ -115,14 +115,14 @@ public class BirdController : MonoBehaviour
             // The y position of the bird (between [-4.5f, 4.5f]
             inputs.set(0, 0, transform.position.y / 4.5f);
 
-            // The y velocity of the bird (divided by 100)
-            inputs.set(1, 0, rb.velocity.y / 100.0f);
+            // The y velocity of the bird (divided by 10)
+            inputs.set(1, 0, rb.velocity.y / 10.0f);
 
             if (closestPipe == null || closestPipe.transform.position.x <= transform.position.x)
                 findClosestPipe();
 
             // The screen width is about 15 units, so normalize it by that value
-            inputs.set(2, 0, closestPipe.transform.position.x / 15.0f);
+            inputs.set(2, 0, (closestPipe.transform.position.x - 0.5f) / 15.0f);
 
             // Set top pipe y position
             inputs.set(3, 0, (closestPipe.transform.position.y + 2.0f) / 4.5f);
@@ -130,7 +130,8 @@ public class BirdController : MonoBehaviour
             // Set bottom pipe y position
             inputs.set(4, 0, (closestPipe.transform.position.y - 2.0f) / 4.5f);
 
-            Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: " + inputs);
+            // Debug.Log("[DEBUG] [FROM BirdController.Update()] closestPipe transform position: " + closestPipe.transform.position);
+            Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: <color=red>" + inputs + "</color>");
 
             if (brain.guess(inputs) == 1)
                 Jump();
@@ -251,6 +252,8 @@ public class BirdController : MonoBehaviour
         // Reset to default values
         clone.GetComponent<BirdController>().reset();
 
+        clone.name = "Bird (Clone)";
+
         return clone;
     }
 
@@ -266,7 +269,7 @@ public class BirdController : MonoBehaviour
         float birdPosition = 0.0f;
 
         // The x position of the closest pipe
-        GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
+        GameObject[] pipes = GameObject.FindGameObjectsWithTag("FullPipe");
         int closest = -1;
         for (int i = 0; i < pipes.Length; i++)
             if (pipes[i].transform.position.x > birdPosition && (closest == -1 || pipes[closest].transform.position.x > pipes[i].transform.position.x))
