@@ -22,11 +22,12 @@ public class NeuralNetwork
 
         for (int i = 0; i < layers.Length - 1; i++)
         {
-            // float min = -(1.0f / Mathf.Sqrt(layers[i]));
-            // float max = (1.0f / Mathf.Sqrt(layers[i]));
+            //float min = -(1.0f / Mathf.Sqrt(layers[i]));
+            //float max = (1.0f / Mathf.Sqrt(layers[i]));
 
             // Weights initialization
             weightsArray[i] = new Matrix(layers[i + 1], layers[i], -1.0f, 1.0f);
+            // weightsArray[i] = new Matrix(layers[i + 1], layers[i], min, max);
 
             // Bias initialization
             biasArray[i] = new Matrix(layers[i + 1], 1, 0f, 1f);
@@ -52,7 +53,7 @@ public class NeuralNetwork
     // (it is compared with 0.5 - greater means true, lower/equal means false) (NOT ACCURATE ANYMORE)
     public int guess(Matrix inputs)
     {
-        Matrix hidden = inputs;
+        Matrix layerVar = inputs;
 
         for (int i = 0; i < weightsArray.Length; i++)
         {
@@ -61,15 +62,15 @@ public class NeuralNetwork
             // Debug.Log("biasArray[i]: " + biasArray[i].getRows() + ", " + biasArray[i].getColumns() + ", i = " + i);
 
             // Calculate the weighted sum
-            hidden = (weightsArray[i] * hidden) + biasArray[i];
+            layerVar = (weightsArray[i] * layerVar) + biasArray[i];
 
             // Activate it
-            sigmoidActivation(hidden);
+            sigmoidActivation(layerVar);
         }
 
         // For Flappy Bird only!!
         // return (hidden.at(0, 0) > 0.9f ? 1 : 0);
-        return (hidden.at(0, 0) > hidden.at(1, 0) ? 1 : 0);
+        return (layerVar.at(0, 0) > layerVar.at(1, 0) ? 1 : 0);
     }
 
     // Applies sigmoid activation on a given matrix (in-place)

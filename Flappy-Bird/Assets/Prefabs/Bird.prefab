@@ -133,6 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3761e6d0ba2d147bc3cf109d2cb640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UUID: 
   jumpForceMultiplier: 5
   debugInfo: 1
-  birdReference: {fileID: 5551431928084803603}

@@ -26,6 +26,9 @@ public class GameManagerFB : MonoBehaviour
     // Reference for the highest score text object
     public Text highestScoreText;
 
+    // Reference for the game speed slider object
+    public Slider gameSpeedSlider;
+
     // It should have a starting speed that updates every frame, to speed up the game
 
     // The distance between two pipes
@@ -55,8 +58,9 @@ public class GameManagerFB : MonoBehaviour
     // Highest score of all generations
     private int highestScore = 0;
 
-    // Time speed up
-    // private float timeSpeedUp = 1.0f;
+    // Time speed up 
+    // LE: now read by the GameSpeedSlider value
+    // private float timeSpeedUp = 4.0f;
 
     //private static GameManagerFB instance;
 
@@ -103,15 +107,15 @@ public class GameManagerFB : MonoBehaviour
 
         // Set the highest score
         highestScoreText.text = "Highest score: " + highestScore;
-
-        // Try to speed up the game
-        // Time.timeScale = timeSpeedUp;
     }
     private void Update()
     {
         // If the game is stopped, return
         if (Time.timeScale == 0)
             return;
+
+        // Set the speed game
+        Time.timeScale = gameSpeedSlider.value;
 
         // Update score information
         currentScore++;
@@ -201,8 +205,8 @@ public class GameManagerFB : MonoBehaviour
         remainingBirds = populationSize;
         remainingBirdsText.text = "Remaining birds: " + remainingBirds;
 
-        // Try to speed up the game
-        // Time.timeScale = timeSpeedUp;
+        // Set the speed game
+        Time.timeScale = gameSpeedSlider.value;
         Debug.Log("[INFO] Restarted the game!");
     }
 

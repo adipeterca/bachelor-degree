@@ -37,7 +37,7 @@ public class PipeController : MonoBehaviour
         top.transform.position += new Vector3(0, gapSize / 2, 0);
         bottom.transform.position += new Vector3(0, -gapSize / 2, 0);
 
-        float y = Random.Range(-3.0f, 3.0f);
+        float y = Random.Range(-2.0f, 2.0f);
 
         // Set the spawn location
         transform.position = spawnPosition + new Vector3(0, y, 0);

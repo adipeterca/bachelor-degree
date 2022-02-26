@@ -131,7 +131,7 @@ public class BirdController : MonoBehaviour
             inputs.set(4, 0, (closestPipe.transform.position.y - 2.0f) / 4.5f);
 
             // Debug.Log("[DEBUG] [FROM BirdController.Update()] closestPipe transform position: " + closestPipe.transform.position);
-            Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: <color=red>" + inputs + "</color>");
+            Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: <color=#00ff00>" + inputs + "</color>");
 
             if (brain.guess(inputs) == 1)
                 Jump();

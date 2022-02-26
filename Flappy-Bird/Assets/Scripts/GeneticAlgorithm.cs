@@ -35,13 +35,13 @@ public class GeneticAlgorithm
     /// <returns>a list containing the best K individuals</returns>
     static private GameObject[] getBestK(GameObject[] currentGeneration)
     {
-        if (currentGeneration.Length < k)
+        if (currentGeneration.Length <= k)
         {
             // Cannot select 'k' elements from a list with less than 'k' elements
             return null;
         }
         GameObject[] best = new GameObject[k];
-        float[] scores = new float[k];
+        float[] scores = new float[currentGeneration.Length];
         for (int i = 0; i < currentGeneration.Length; i++)
         {
             scores[i] = fitness(currentGeneration[i].GetComponent<BirdController>().getScore());
@@ -73,7 +73,9 @@ public class GeneticAlgorithm
         } while (ok);
 
         for (int i = 0; i < k; i++)
-            best[i] = currentGeneration[i];
+            best[i] = currentGeneration[i].GetComponent<BirdController>().deepCopy();
+
+        // Debug.Log("[DEBUG] [FROM GeneticAlgorithm.getBestK()] Applied elitism");
         return best;
     }
 
@@ -114,11 +116,11 @@ public class GeneticAlgorithm
                 }
         }
 
-        //// Apply elitism
-        //GameObject[] elitismList = getBestK(oldGeneration);
+        // Apply elitism
+        GameObject[] elitismList = getBestK(oldGeneration);
 
-        //for (int i = 0; i < elitismList.Length; i++)
-        //    newGeneration[i] = elitismList[i];
+        for (int i = 0; i < elitismList.Length; i++)
+            newGeneration[i] = elitismList[i];
 
     }
 
