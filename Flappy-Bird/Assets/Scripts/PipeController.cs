@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PipeController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PipeController : MonoBehaviour
 
     // The position at which this object will be destroyed
     public Vector3 destroyPosition;
+
+    // The position at which this object will increase the number of pipes passed by the current generation of birds
+    public Vector3 incPipesPassed;
 
     // The gap size
     public float gapSize;
@@ -24,6 +28,11 @@ public class PipeController : MonoBehaviour
 
     // Is this GameObject a prefab?
     private bool isPrefab = false;
+
+    // Reference to the pipes passed text object
+    private Text incPipesPassedText;
+
+    bool alreadyIncremented = false;
 
     private void Start()
     {
@@ -41,6 +50,9 @@ public class PipeController : MonoBehaviour
 
         // Set the spawn location
         transform.position = spawnPosition + new Vector3(0, y, 0);
+
+        // Set the pipes passed reference
+        incPipesPassedText = GameObject.FindGameObjectWithTag("PipesPassedTextObject").GetComponent<Text>();
     }
 
     public void Update()
@@ -54,6 +66,13 @@ public class PipeController : MonoBehaviour
 
         // Move the object each frame
         transform.Translate(speed * speedMultiplier * Time.deltaTime);
+
+        // Increment number of pipes passed
+        if (transform.position.x <= incPipesPassed.x && !alreadyIncremented)
+        {
+            incPipesPassedText.text = (int.Parse(incPipesPassedText.text) + 1) + "";
+            alreadyIncremented = true;
+        }
 
         // Check to see if it should be destroyed
         if (transform.position.x <= destroyPosition.x)

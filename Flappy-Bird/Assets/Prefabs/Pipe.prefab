@@ -261,7 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb267382456f83a4ca98230cdcdd3a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  incPipesPassedText: {fileID: 0}
   spawnPosition: {x: 17, y: 0, z: 0}
   destroyPosition: {x: -6, y: 0, z: 0}
+  incPipesPassed: {x: 0, y: 0, z: 0}
   gapSize: 4
   speedMultiplier: 0.5

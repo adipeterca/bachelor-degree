@@ -26,8 +26,11 @@ public class GameManagerFB : MonoBehaviour
     // Reference for the highest score text object
     public Text highestScoreText;
 
-    // Reference for the game speed slider object
-    public Slider gameSpeedSlider;
+    // Reference for the passed pipes text object
+    public Text passedPipesText;
+
+    // Reference for the highest passed pipes text object
+    public Text passedPipesHighestText;
 
     // It should have a starting speed that updates every frame, to speed up the game
 
@@ -58,9 +61,8 @@ public class GameManagerFB : MonoBehaviour
     // Highest score of all generations
     private int highestScore = 0;
 
-    // Time speed up 
-    // LE: now read by the GameSpeedSlider value
-    // private float timeSpeedUp = 4.0f;
+    // Constants
+    private int TIME_SCALE = 2;
 
     //private static GameManagerFB instance;
 
@@ -107,6 +109,11 @@ public class GameManagerFB : MonoBehaviour
 
         // Set the highest score
         highestScoreText.text = "Highest score: " + highestScore;
+
+        // Set the number of passed pipes
+        passedPipesText.text = "0";
+        passedPipesHighestText.text = "0";
+
     }
     private void Update()
     {
@@ -114,8 +121,8 @@ public class GameManagerFB : MonoBehaviour
         if (Time.timeScale == 0)
             return;
 
-        // Set the speed game
-        Time.timeScale = gameSpeedSlider.value;
+        // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
+        Time.timeScale = TIME_SCALE;
 
         // Update score information
         currentScore++;
@@ -126,6 +133,13 @@ public class GameManagerFB : MonoBehaviour
         {
             highestScore = currentScore;
             highestScoreText.text = "Highest score: " + highestScore + "\n(on generation " + numberOfGenerations + ")";
+        }
+
+        // Adjust the maximum number of passed pipes (if neccesary)
+        int currentPassedPipes = int.Parse(passedPipesText.text);
+        if (currentPassedPipes > int.Parse(passedPipesHighestText.text))
+        {
+            passedPipesHighestText.text = currentPassedPipes + "";
         }
 
         // Are there any birds left?
@@ -191,7 +205,7 @@ public class GameManagerFB : MonoBehaviour
 
         lastCreatedPipe = Instantiate(pipeReference);
 
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
 
         // Set the generation count
         numberOfGenerations++;
@@ -205,8 +219,11 @@ public class GameManagerFB : MonoBehaviour
         remainingBirds = populationSize;
         remainingBirdsText.text = "Remaining birds: " + remainingBirds;
 
-        // Set the speed game
-        Time.timeScale = gameSpeedSlider.value;
+        // Set the number of passed pipes
+        passedPipesText.text = "0";
+
+        // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
+        Time.timeScale = TIME_SCALE;
         Debug.Log("[INFO] Restarted the game!");
     }
 
