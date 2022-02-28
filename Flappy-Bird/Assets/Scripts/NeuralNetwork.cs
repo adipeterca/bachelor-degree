@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Neural network class used in the NEAT algorithm
+// Neural network class used in the NeuroEvolution algorithm
 public class NeuralNetwork
 {
     private Matrix[] weightsArray;
@@ -120,6 +120,35 @@ public class NeuralNetwork
         }
     }
 
+    /// <summary>
+    /// Public function which exports the neural network to a given file. <br></br>
+    /// If the file does not exist, it will be created. Otherwise, it will be overwriten. <br></br>
+    /// The format is as follows: <br></br>
+    /// <br></br>
+    /// [ROWS_WEIGHTS_LAYER_1] [COLUMNS_WEIGHTS_LAYER_1] [DATA_WEIGHTS_LAYER_1] [ROWS_BIAS_LAYER_1] [COLUMNS_BIAS_LAYER_1] [DATA_BIAS_LAYER_1] <br></br>
+    /// [ROWS_WEIGHTS_LAYER_2] [COLUMNS_WEIGHTS_LAYER_2] [DATA_WEIGHTS_LAYER_2] [ROWS_BIAS_LAYER_2] [COLUMNS_BIAS_LAYER_2] [DATA_BIAS_LAYER_2] <br></br>
+    /// ... <br></br>
+    /// [ROWS_WEIGHTS_LAYER_n] [COLUMNS_WEIGHTS_LAYER_n] [DATA_WEIGHTS_LAYER_n] [ROWS_BIAS_LAYER_n] [COLUMNS_BIAS_LAYER_n] [DATA_BIAS_LAYER_n] <br></br>
+    /// <br></br>
+    /// where each DATA_WEIGHTS gets its size from the product of ROWS_WEIGHTS and COLUMNS_WEIGHTS (the same goes for BIAS). <br></br>
+    /// </summary>
+    /// <param name="path">path to the file (commonly ended in ".txt")</param>
+    public void export(string path)
+    {
+        using (System.IO.StreamWriter fout = new System.IO.StreamWriter(path))
+        {
+            for (int i = 0; i < weightsArray.Length; i++)
+            {
+                fout.Write(weightsArray[i].getRows() + " ");
+                fout.Write(weightsArray[i].getColumns() + " ");
+                for (int j = 0; j < weightsArray[i].getRows(); j++)
+                    for (int k = 0; k < weightsArray[i].getColumns(); k++)
+                        fout.Write(weightsArray[i].at(j, k) + " ");
+
+                fout.WriteLine("");
+            }
+        }
+    }
 
     /// <summary>
     /// Public function for applying crossover to two given neural networks.
@@ -166,5 +195,4 @@ public class NeuralNetwork
         n1 = kids[0];
         n2 = kids[1];
     }
-
 }

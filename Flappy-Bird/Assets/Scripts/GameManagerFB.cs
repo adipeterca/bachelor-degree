@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class BestBird
+{
+    public NeuralNetwork brain;
+    public int score;
+}
+
 public class GameManagerFB : MonoBehaviour
 {
     // Pipe reference for the creation of future objects
@@ -32,10 +38,15 @@ public class GameManagerFB : MonoBehaviour
     // Reference for the highest passed pipes text object
     public Text passedPipesHighestText;
 
-    // It should have a starting speed that updates every frame, to speed up the game
+    // Reference used to play a sound when a new generation of birds is started or when the simulation ended
+    public AudioSource newGenerationAudio;
 
     // The distance between two pipes
     public float distanceBetweenPipes;
+
+    // The maximum number of generations (the game stops as soon as it has reached this point)
+    public int maxGenerationCount;
+
 
     // Pipe reference to the last created pipe
     private GameObject lastCreatedPipe;
@@ -61,6 +72,9 @@ public class GameManagerFB : MonoBehaviour
     // Highest score of all generations
     private int highestScore = 0;
 
+    // Best performing bird of all times
+    private BestBird bestBird = new BestBird();
+
     // Constants
     private int TIME_SCALE = 2;
 
@@ -72,6 +86,9 @@ public class GameManagerFB : MonoBehaviour
     //        instance = new GameManagerFB();
     //    return instance;
     //}
+
+    // Filename for each run to store information into
+    private string filenameInfo = "INFO_run_" + System.DateTime.Now.Ticks + ".txt";
 
     private void Start()
     {
@@ -117,6 +134,10 @@ public class GameManagerFB : MonoBehaviour
     }
     private void Update()
     {
+        // Terminate the application as soon as it has reached the maximum number of generations
+        if (numberOfGenerations == maxGenerationCount)
+            quitSimulation();
+
         // If the game is stopped, return
         if (Time.timeScale == 0)
             return;
@@ -163,17 +184,39 @@ public class GameManagerFB : MonoBehaviour
             Time.timeScale = 0;
             Debug.Log("[INFO] Stopped the game!");
 
-            // 13 JAN
-            // NeuralNetwork[] brains = new NeuralNetork[birds.Length];
-            // brains = GeneticAlgorithm.getNextGeneration(brains);
-            // foreach (int i = 0; i < birds.Length; i++)
-            //      birds[i] = Instantiate(birdReference);
-            //      birds[i].setBrain(brains[i]); // maybe implement smth like NeuralNetwork.DeepCopy(brains[i])
+            // Write relevant information to INFO file
+            using (System.IO.StreamWriter foutInfo = System.IO.File.AppendText(filenameInfo))
+            {
+                foutInfo.WriteLine("Highest score: " + currentScore);
+
+                int totalScore = 0;
+                for (int i = 0; i < birds.Length; i++)
+                {
+                    totalScore += birds[i].GetComponent<BirdController>().getScore();
+                    Debug.Log("[DEBUG] [FROM GameManagerFB.restartGame()] totalScore: " + totalScore);
+                }
+                float mean = ((float)totalScore) / birds.Length;
+                foutInfo.WriteLine("Mean score: " + mean);
+
+                int birdsOverMean = 0;
+                for (int i = 0; i < birds.Length; i++)
+                    if (birds[i].GetComponent<BirdController>().getScore() >= mean)
+                        birdsOverMean++;
+                foutInfo.WriteLine("Number of birds with a score over mean score: " + birdsOverMean);
+
+                foutInfo.WriteLine("Pipes passed: " + passedPipesText.text);
+                foutInfo.WriteLine("-------------------------------------------------------------------------------\n\n");
+            }
+
+            // Retain a copy of the best bird until this moment
+            for (int i = 0; i < birds.Length; i++)
+                if (bestBird == null || bestBird.score < birds[i].GetComponent<BirdController>().getScore())
+                {
+                    bestBird.brain = new NeuralNetwork(birds[i].GetComponent<BirdController>().getBrain());
+                    bestBird.score = birds[i].GetComponent<BirdController>().getScore();
+                }
 
             birds = GeneticAlgorithm.getNextGeneration(birds);
-
-            //Debug.Log("[DEBUG] Stopped the game for debugging reasons.");
-            //Time.timeScale = 0;
 
             restartGame();
             return;
@@ -225,6 +268,9 @@ public class GameManagerFB : MonoBehaviour
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
         Time.timeScale = TIME_SCALE;
         Debug.Log("[INFO] Restarted the game!");
+
+        // Play a sound to alert the user that a new generation was started
+        newGenerationAudio.Play();
     }
 
     /// <summary>
@@ -239,5 +285,19 @@ public class GameManagerFB : MonoBehaviour
                 activeBirds++;
 
         Debug.Log("active birds " + time + ": " + activeBirds);
+    }
+
+    /// <summary>
+    /// Private method for exiting the simulation.<br></br>
+    /// It also exports the best bird so far, if any.
+    /// </summary>
+    public void quitSimulation()
+    {
+        Debug.Log("[INFO] [FROM GameManagerFB.quitSimulation()] Simulation over!");
+
+        // Export the best bird
+        bestBird.brain.export("bestBird.txt");
+
+        Application.Quit();
     }
 }

@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # Added by myself
 ../.vsconfig
+/_Builds/*
+/INFO_*
+/bestBird.txt
