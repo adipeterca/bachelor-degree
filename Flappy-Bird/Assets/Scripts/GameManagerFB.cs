@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Utility class for storing information about the best performing bird.
+/// </summary>
 public class BestBird
 {
     public NeuralNetwork brain;
@@ -96,6 +99,10 @@ public class GameManagerFB : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFrameRate;
 
+        // Load values from ConfigScene
+        maxGenerationCount = GlobalManager.GetInstance().maxGenerationCount;
+        populationSize = GlobalManager.GetInstance().populationSize;
+
         // Mark the reference as a prefab
         pipeReference.GetComponent<PipeController>().markAsPrefab();
 
@@ -131,6 +138,7 @@ public class GameManagerFB : MonoBehaviour
         passedPipesText.text = "0";
         passedPipesHighestText.text = "0";
 
+        // Debug.Log("[DEBUG] [FROM GameManagerFB.Start()] Global Manager pop size : " + GlobalManager.GetInstance().populationSize);
     }
     private void Update()
     {
