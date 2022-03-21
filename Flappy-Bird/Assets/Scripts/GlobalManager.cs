@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singleton class used to pass configuration values from one scene to the other. 
+/// <br></br>
+/// For development purposes, default values are put in place.
+/// </summary>
 public class GlobalManager
 {
     private static GlobalManager instance;
@@ -15,6 +20,7 @@ public class GlobalManager
         return instance;
     }
 
-    public int maxGenerationCount;
-    public int populationSize;
+    public int maxGenerationCount = 30;
+    public int populationSize = 90;
+    public string pathToBrain = "./default_brain.txt";
 }

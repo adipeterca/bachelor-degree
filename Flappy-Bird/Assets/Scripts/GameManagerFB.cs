@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +51,9 @@ public class GameManagerFB : MonoBehaviour
     // The maximum number of generations (the game stops as soon as it has reached this point)
     public int maxGenerationCount;
 
+    // Reference to the Clock text object
+    public Text clockText;
+
 
     // Pipe reference to the last created pipe
     private GameObject lastCreatedPipe;
@@ -77,6 +81,9 @@ public class GameManagerFB : MonoBehaviour
 
     // Best performing bird of all times
     private BestBird bestBird = new BestBird();
+
+    // How much time passed since the simulation started
+    private float timePassed = -1f;
 
     // Constants
     private int TIME_SCALE = 2;
@@ -122,7 +129,7 @@ public class GameManagerFB : MonoBehaviour
         }
 
         // Set the generation count
-        generationCountText.text = "Generation: " + numberOfGenerations;
+        generationCountText.text = "Generation: " + numberOfGenerations + " / " + maxGenerationCount;
 
         // Set the current score
         currentScoreText.text = "Current score: " + currentScore;
@@ -163,6 +170,9 @@ public class GameManagerFB : MonoBehaviour
             highestScore = currentScore;
             highestScoreText.text = "Highest score: " + highestScore + "\n(on generation " + numberOfGenerations + ")";
         }
+
+        // Update time
+        SetClockTime();
 
         // Adjust the maximum number of passed pipes (if neccesary)
         int currentPassedPipes = int.Parse(passedPipesText.text);
@@ -293,6 +303,28 @@ public class GameManagerFB : MonoBehaviour
                 activeBirds++;
 
         Debug.Log("active birds " + time + ": " + activeBirds);
+    }
+
+    /// <summary>
+    /// Private method that handles the clock time display and calculations.
+    /// </summary>
+    private void SetClockTime()
+    {
+        // This also takes in account the time that the ConfigScene was loaded
+        if (timePassed == -1f)
+        {
+            timePassed = Time.realtimeSinceStartup;
+            return;
+        }
+
+        // Number of seconds for the simulation ONLY (ConfigScene not included)
+        int realtime = (int)(Time.realtimeSinceStartup - timePassed);
+
+        string hour = (realtime / 3600).ToString().PadLeft(2, '0');
+        string minute = (realtime % 3600 / 60).ToString().PadLeft(2, '0');
+        string second = (realtime % 60).ToString().PadLeft(2, '0');
+        
+        clockText.text = hour + ":" + minute + ":" + second;
     }
 
     /// <summary>
