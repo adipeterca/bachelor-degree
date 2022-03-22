@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PipeController : MonoBehaviour
 {
+    [Header("Pipe settings")]
     // The initial position at which this object will spawn
     public Vector3 spawnPosition;
 
     // The position at which this object will be destroyed
     public Vector3 destroyPosition;
-
-    // The position at which this object will increase the number of pipes passed by the current generation of birds
-    public Vector3 incPipesPassed;
 
     // The gap size
     public float gapSize;
@@ -29,9 +28,7 @@ public class PipeController : MonoBehaviour
     // Is this GameObject a prefab?
     private bool isPrefab = false;
 
-    // Reference to the pipes passed text object
-    private Text incPipesPassedText;
-
+    // Has this pipe already been passed by a bird?
     bool alreadyIncremented = false;
 
     private void Start()
@@ -49,10 +46,7 @@ public class PipeController : MonoBehaviour
         float y = Random.Range(-2.0f, 2.0f);
 
         // Set the spawn location
-        transform.position = spawnPosition + new Vector3(0, y, 0);
-
-        // Set the pipes passed reference
-        incPipesPassedText = GameObject.FindGameObjectWithTag("PipesPassedTextObject").GetComponent<Text>();
+        transform.position = new Vector3(spawnPosition.x, y, spawnPosition.z);
     }
 
     public void Update()
@@ -65,13 +59,22 @@ public class PipeController : MonoBehaviour
             return;
 
         // Move the object each frame
-        transform.Translate(speed * speedMultiplier * Time.deltaTime);
+        transform.Translate(speedMultiplier * Time.deltaTime * speed);
 
         // Increment number of pipes passed
-        if (transform.position.x <= incPipesPassed.x && !alreadyIncremented)
+        if (transform.position.x <= 0 && !alreadyIncremented)
         {
-            incPipesPassedText.text = (int.Parse(incPipesPassedText.text) + 1) + "";
             alreadyIncremented = true;
+
+            if (SceneManager.GetActiveScene().name == "SimulateEvolutionScene")
+            {
+                GameManagerSimulation.Instance.IncreaseScore();
+            }
+            else if (SceneManager.GetActiveScene().name == "TestABirdScene")
+            {
+                GameManagerTest.Instance.IncreaseScore();
+            }
+            
         }
 
         // Check to see if it should be destroyed
@@ -82,13 +85,19 @@ public class PipeController : MonoBehaviour
         }
     }
 
-    // Marks this gameObject as a Prefab and prevents it from being destroyed and from moving.
-    public void markAsPrefab()
+    /// <summary>
+    /// Public method that marks this gameObject as a Prefab and prevents it from being destroyed and from moving.
+    /// </summary>
+    public void MarkAsPrefab()
     {
         isPrefab = true;
     }
 
-    public bool isMarkedAsPrefab()
+    /// <summary>
+    /// Is this object a prefab?
+    /// </summary>
+    /// <returns>true if it is, false otherwise</returns>
+    public bool IsMarkedAsPrefab()
     {
         return isPrefab;
     }

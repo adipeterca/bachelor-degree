@@ -194,7 +194,7 @@ public class GeneticAlgorithm
     }
 
     // Public function for creating the next generation of gameObjects
-    static public GameObject[] getNextGeneration(GameObject[] currentGeneration)
+    static public GameObject[] GetNextGeneration(GameObject[] currentGeneration)
     {
         // Change made to highlight the need of a deep copy function
         // return currentGeneration;

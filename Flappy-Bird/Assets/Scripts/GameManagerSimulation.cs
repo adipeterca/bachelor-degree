@@ -13,16 +13,14 @@ public class BestBird
     public int score;
 }
 
-public class GameManagerFB : MonoBehaviour
+public class GameManagerSimulation : MonoBehaviour
 {
+    [Header("References")]
     // Pipe reference for the creation of future objects
     public GameObject pipeReference;
 
     // Bird reference for the creation of future objects
     public GameObject birdReference;
-
-    // Number of birds (initial population size)
-    public int populationSize;
 
     // Reference for generation count text object
     public Text generationCountText;
@@ -30,29 +28,26 @@ public class GameManagerFB : MonoBehaviour
     // Reference for current score text object
     public Text currentScoreText;
 
-    // Reference for the number of remianing birds text object
-    public Text remainingBirdsText;
-
     // Reference for the highest score text object
     public Text highestScoreText;
 
-    // Reference for the passed pipes text object
-    public Text passedPipesText;
-
-    // Reference for the highest passed pipes text object
-    public Text passedPipesHighestText;
+    // Reference for the number of remianing birds text object
+    public Text remainingBirdsText;
 
     // Reference used to play a sound when a new generation of birds is started or when the simulation ended
     public AudioSource newGenerationAudio;
 
-    // The distance between two pipes
-    public float distanceBetweenPipes;
+    [Header("Genetic Algorithm settings")]
+    // Number of birds (initial population size)
+    public int populationSize;
 
     // The maximum number of generations (the game stops as soon as it has reached this point)
     public int maxGenerationCount;
 
-    // Reference to the Clock text object
-    public Text clockText;
+    [Header("Game settings")]
+
+    // The distance between two pipes
+    public float distanceBetweenPipes;
 
 
     // Pipe reference to the last created pipe
@@ -64,54 +59,58 @@ public class GameManagerFB : MonoBehaviour
     // Bird reference list
     private GameObject[] birds;
 
-    // Number of maximum frames per second
-    private int targetFrameRate = 60;
-
     // Number of generations
-    private int numberOfGenerations = 1;
+    private int generationCount = 1;
 
     // The highest (or current) score of the current generation
     private int currentScore = 0;
 
-    // Number of remaining birds in the current generation
-    private int remainingBirds;
-
     // Highest score of all generations
     private int highestScore = 0;
+
+    // Number of remaining birds in the current generation
+    private int remainingBirds;
 
     // Best performing bird of all times
     private BestBird bestBird = new BestBird();
 
-    // How much time passed since the simulation started
-    private float timePassed = -1f;
-
     // Constants
     private int TIME_SCALE = 2;
 
-    //private static GameManagerFB instance;
-
-    //public static GameManagerFB getInstance()
-    //{
-    //    if (instance == null)
-    //        instance = new GameManagerFB();
-    //    return instance;
-    //}
-
     // Filename for each run to store information into
     private string filenameInfo = "INFO_run_" + System.DateTime.Now.Ticks + ".txt";
+
+    private GameManagerSimulation() { }
+
+    /// <summary>
+    /// Public static method for retrieving the only instance of the GameManagerSimulation.
+    /// </summary>
+    public static GameManagerSimulation Instance
+    {
+        get;
+        private set;
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(this);
+        else
+            Instance = this;
+    }
 
     private void Start()
     {
         // Framerate settings
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
+        Application.targetFrameRate = 60;
 
         // Load values from ConfigScene
         maxGenerationCount = GlobalManager.GetInstance().maxGenerationCount;
         populationSize = GlobalManager.GetInstance().populationSize;
 
         // Mark the reference as a prefab
-        pipeReference.GetComponent<PipeController>().markAsPrefab();
+        pipeReference.GetComponent<PipeController>().MarkAsPrefab();
 
         lastCreatedPipe = Instantiate(pipeReference);
 
@@ -129,7 +128,7 @@ public class GameManagerFB : MonoBehaviour
         }
 
         // Set the generation count
-        generationCountText.text = "Generation: " + numberOfGenerations + " / " + maxGenerationCount;
+        generationCountText.text = "Generation: " + generationCount + " / " + maxGenerationCount;
 
         // Set the current score
         currentScoreText.text = "Current score: " + currentScore;
@@ -141,17 +140,13 @@ public class GameManagerFB : MonoBehaviour
         // Set the highest score
         highestScoreText.text = "Highest score: " + highestScore;
 
-        // Set the number of passed pipes
-        passedPipesText.text = "0";
-        passedPipesHighestText.text = "0";
-
         // Debug.Log("[DEBUG] [FROM GameManagerFB.Start()] Global Manager pop size : " + GlobalManager.GetInstance().populationSize);
     }
     private void Update()
     {
         // Terminate the application as soon as it has reached the maximum number of generations
-        if (numberOfGenerations == maxGenerationCount)
-            quitSimulation();
+        if (generationCount == maxGenerationCount)
+            QuitSimulation();
 
         // If the game is stopped, return
         if (Time.timeScale == 0)
@@ -159,27 +154,6 @@ public class GameManagerFB : MonoBehaviour
 
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
         Time.timeScale = TIME_SCALE;
-
-        // Update score information
-        currentScore++;
-        currentScoreText.text = "Current score: " + currentScore;
-
-        // Update highest score
-        if (currentScore > highestScore)
-        {
-            highestScore = currentScore;
-            highestScoreText.text = "Highest score: " + highestScore + "\n(on generation " + numberOfGenerations + ")";
-        }
-
-        // Update time
-        SetClockTime();
-
-        // Adjust the maximum number of passed pipes (if neccesary)
-        int currentPassedPipes = int.Parse(passedPipesText.text);
-        if (currentPassedPipes > int.Parse(passedPipesHighestText.text))
-        {
-            passedPipesHighestText.text = currentPassedPipes + "";
-        }
 
         // Are there any birds left?
         bool noMoreBirds = true;
@@ -199,44 +173,7 @@ public class GameManagerFB : MonoBehaviour
         // If no more birds are left, restart the iteration
         if (noMoreBirds)
         {
-            Time.timeScale = 0;
-            Debug.Log("[INFO] Stopped the game!");
-
-            // Write relevant information to INFO file
-            using (System.IO.StreamWriter foutInfo = System.IO.File.AppendText(filenameInfo))
-            {
-                foutInfo.WriteLine("Highest score: " + currentScore);
-
-                int totalScore = 0;
-                for (int i = 0; i < birds.Length; i++)
-                {
-                    totalScore += birds[i].GetComponent<BirdController>().getScore();
-                    Debug.Log("[DEBUG] [FROM GameManagerFB.restartGame()] totalScore: " + totalScore);
-                }
-                float mean = ((float)totalScore) / birds.Length;
-                foutInfo.WriteLine("Mean score: " + mean);
-
-                int birdsOverMean = 0;
-                for (int i = 0; i < birds.Length; i++)
-                    if (birds[i].GetComponent<BirdController>().getScore() >= mean)
-                        birdsOverMean++;
-                foutInfo.WriteLine("Number of birds with a score over mean score: " + birdsOverMean);
-
-                foutInfo.WriteLine("Pipes passed: " + passedPipesText.text);
-                foutInfo.WriteLine("-------------------------------------------------------------------------------\n\n");
-            }
-
-            // Retain a copy of the best bird until this moment
-            for (int i = 0; i < birds.Length; i++)
-                if (bestBird == null || bestBird.score < birds[i].GetComponent<BirdController>().getScore())
-                {
-                    bestBird.brain = new NeuralNetwork(birds[i].GetComponent<BirdController>().getBrain());
-                    bestBird.score = birds[i].GetComponent<BirdController>().getScore();
-                }
-
-            birds = GeneticAlgorithm.getNextGeneration(birds);
-
-            restartGame();
+            RestartGame();
             return;
         }
 
@@ -249,13 +186,54 @@ public class GameManagerFB : MonoBehaviour
         
     }
 
-    // Delete all pipes (except for the pipeRef), reposition all the birds
-    private void restartGame()
+    /// <summary>
+    /// Private method for handling the restart of a game iteration.<br></br>
+    /// It stops the game, writes the output log, retains the best bird (if any), creates the next generation of birds and repositions 
+    /// them and the pipes. After all calculations are done, it plays a sound to alert the user.
+    /// </summary>
+    private void RestartGame()
     {
+        Time.timeScale = 0;
+        Debug.Log("[INFO] Stopped the game!");
+
+        // Write relevant information to INFO file
+        using (System.IO.StreamWriter foutInfo = System.IO.File.AppendText(filenameInfo))
+        {
+            foutInfo.WriteLine("Highest score: " + currentScore);
+
+            int totalScore = 0;
+            for (int i = 0; i < birds.Length; i++)
+            {
+                totalScore += birds[i].GetComponent<BirdController>().getScore();
+                Debug.Log("[DEBUG] [FROM GameManagerFB.restartGame()] totalScore: " + totalScore);
+            }
+            float mean = ((float)totalScore) / birds.Length;
+            foutInfo.WriteLine("Mean score: " + mean);
+
+            int birdsOverMean = 0;
+            for (int i = 0; i < birds.Length; i++)
+                if (birds[i].GetComponent<BirdController>().getScore() >= mean)
+                    birdsOverMean++;
+            foutInfo.WriteLine("Number of birds with a score over mean score: " + birdsOverMean);
+
+            // foutInfo.WriteLine("Pipes passed: " + passedPipesText.text);
+            foutInfo.WriteLine("-------------------------------------------------------------------------------\n\n");
+        }
+
+        // Retain a copy of the best bird until this moment
+        for (int i = 0; i < birds.Length; i++)
+            if (bestBird == null || bestBird.score < birds[i].GetComponent<BirdController>().getScore())
+            {
+                bestBird.brain = new NeuralNetwork(birds[i].GetComponent<BirdController>().getBrain());
+                bestBird.score = birds[i].GetComponent<BirdController>().getScore();
+            }
+
+        birds = GeneticAlgorithm.GetNextGeneration(birds);
+
         // First delete the pipes
         var pipesToBeDeleted = GameObject.FindGameObjectsWithTag("FullPipe");
         for (int i = 0; i < pipesToBeDeleted.Length; i++)
-            if (!pipesToBeDeleted[i].GetComponent<PipeController>().isMarkedAsPrefab())
+            if (!pipesToBeDeleted[i].GetComponent<PipeController>().IsMarkedAsPrefab())
                 Destroy(pipesToBeDeleted[i]);
 
         // Then reset all the birds
@@ -266,11 +244,9 @@ public class GameManagerFB : MonoBehaviour
 
         lastCreatedPipe = Instantiate(pipeReference);
 
-        // Time.timeScale = 1;
-
         // Set the generation count
-        numberOfGenerations++;
-        generationCountText.text = "Generation: " + numberOfGenerations;
+        generationCount++;
+        generationCountText.text = "Generation: " + generationCount;
 
         // Set the current score
         currentScore = 0;
@@ -280,12 +256,9 @@ public class GameManagerFB : MonoBehaviour
         remainingBirds = populationSize;
         remainingBirdsText.text = "Remaining birds: " + remainingBirds;
 
-        // Set the number of passed pipes
-        passedPipesText.text = "0";
-
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
         Time.timeScale = TIME_SCALE;
-        Debug.Log("[INFO] Restarted the game!");
+        // Debug.Log("[INFO] Restarted the game!");
 
         // Play a sound to alert the user that a new generation was started
         newGenerationAudio.Play();
@@ -295,7 +268,7 @@ public class GameManagerFB : MonoBehaviour
     /// Debug function for displaying to console how many birds are active (as GameObjects).
     /// </summary>
     /// <param name="time">at which moment does the calculation take place (can be used as a unique identifier when debugging)</param>
-    private void debugActiveBirds(string time)
+    private void DebugActiveBirds(string time)
     {
         int activeBirds = 0;
         foreach (var bird in birds)
@@ -306,32 +279,10 @@ public class GameManagerFB : MonoBehaviour
     }
 
     /// <summary>
-    /// Private method that handles the clock time display and calculations.
-    /// </summary>
-    private void SetClockTime()
-    {
-        // This also takes in account the time that the ConfigScene was loaded
-        if (timePassed == -1f)
-        {
-            timePassed = Time.realtimeSinceStartup;
-            return;
-        }
-
-        // Number of seconds for the simulation ONLY (ConfigScene not included)
-        int realtime = (int)(Time.realtimeSinceStartup - timePassed);
-
-        string hour = (realtime / 3600).ToString().PadLeft(2, '0');
-        string minute = (realtime % 3600 / 60).ToString().PadLeft(2, '0');
-        string second = (realtime % 60).ToString().PadLeft(2, '0');
-        
-        clockText.text = hour + ":" + minute + ":" + second;
-    }
-
-    /// <summary>
     /// Private method for exiting the simulation.<br></br>
     /// It also exports the best bird so far, if any.
     /// </summary>
-    public void quitSimulation()
+    public void QuitSimulation()
     {
         Debug.Log("[INFO] [FROM GameManagerFB.quitSimulation()] Simulation over!");
 
@@ -339,5 +290,24 @@ public class GameManagerFB : MonoBehaviour
         bestBird.brain.export("bestBird.txt");
 
         Application.Quit();
+    }
+
+
+    /// <summary>
+    /// Public method used to update the score and to handle its display on the screen.<br></br>
+    /// This function will be called by each Pipe that gets passed
+    /// </summary>
+    public void IncreaseScore()
+    {
+        // Update score information
+        currentScore++;
+        currentScoreText.text = "Current score: " + currentScore;
+
+        // Update highest score
+        if (currentScore > highestScore)
+        {
+            highestScore = currentScore;
+            highestScoreText.text = "Highest score: " + highestScore + "\n(on generation " + generationCount + ")";
+        }
     }
 }

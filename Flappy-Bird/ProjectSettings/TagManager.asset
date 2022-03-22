@@ -7,6 +7,7 @@ TagManager:
   - Pipe
   - FullPipe
   - PipesPassedTextObject
+  - GameManager
   layers:
   - Default
   - TransparentFX
