@@ -22,5 +22,5 @@ public class GlobalManager
 
     public int maxGenerationCount = 30;
     public int populationSize = 90;
-    public string pathToBrain = "./default_brain.txt";
+    public string pathToBrain = "F:\\Facultate\\Licenta\\Flappy-Bird\\_Builds\\version_3\\bestBird.txt";
 }

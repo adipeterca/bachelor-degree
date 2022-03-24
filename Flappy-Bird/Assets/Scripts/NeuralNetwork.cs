@@ -62,7 +62,7 @@ public class NeuralNetwork
     public NeuralNetwork(string filePath)
     {
         System.IO.StreamReader fin = new System.IO.StreamReader(filePath);
-
+        
         int rows, columns;
         string[] lines;
         string[] values;
@@ -83,7 +83,10 @@ public class NeuralNetwork
             weightsArray[lineCount] = new Matrix(rows, columns);
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < columns; j++)
+                {
+                    // Debug.Log("trying to parse " + values[k]);
                     weightsArray[lineCount].set(i, j, float.Parse(values[k++]));
+                }
 
             // Read biases data
             rows = int.Parse(values[k++]);
@@ -91,7 +94,10 @@ public class NeuralNetwork
             biasArray[lineCount] = new Matrix(rows, columns);
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < columns; j++)
+                {
+                    // Debug.Log("trying to parse " + values[k]);
                     biasArray[lineCount].set(i, j, float.Parse(values[k++]));
+                }
         }
     }
 

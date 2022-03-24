@@ -44,7 +44,7 @@ public class GeneticAlgorithm
         float[] scores = new float[currentGeneration.Length];
         for (int i = 0; i < currentGeneration.Length; i++)
         {
-            scores[i] = fitness(currentGeneration[i].GetComponent<BirdController>().getScore());
+            scores[i] = fitness(currentGeneration[i].GetComponent<BirdController>().GetScore());
         }
 
         GameObject auxGO;
@@ -73,7 +73,7 @@ public class GeneticAlgorithm
         } while (ok);
 
         for (int i = 0; i < k; i++)
-            best[i] = currentGeneration[i].GetComponent<BirdController>().deepCopy();
+            best[i] = currentGeneration[i].GetComponent<BirdController>().DeepCopy();
 
         // Debug.Log("[DEBUG] [FROM GeneticAlgorithm.getBestK()] Applied elitism");
         return best;
@@ -86,7 +86,7 @@ public class GeneticAlgorithm
 
         // Calculate the fitness scores
         for (int i = 0; i < oldGeneration.Length; i++)
-            scores[i] = fitness(oldGeneration[i].GetComponent<BirdController>().getScore());
+            scores[i] = fitness(oldGeneration[i].GetComponent<BirdController>().GetScore());
 
         // Normalize the fitness values
         float normalizingFactor = 0.0f;
@@ -111,7 +111,7 @@ public class GeneticAlgorithm
                 if (q[j] < r && r <= q[j + 1])
                 {
                     // Clone the bird
-                    newGeneration[i] = oldGeneration[j].GetComponent<BirdController>().deepCopy();
+                    newGeneration[i] = oldGeneration[j].GetComponent<BirdController>().DeepCopy();
                     break;
                 }
         }
@@ -128,7 +128,7 @@ public class GeneticAlgorithm
     {
         for (int i = 0; i < newGeneration.Length; i++)
         {
-            newGeneration[i].GetComponent<BirdController>().getBrain().Mutate(mutationChance);
+            newGeneration[i].GetComponent<BirdController>().GetBrain().Mutate(mutationChance);
         }
     }
 
@@ -175,8 +175,8 @@ public class GeneticAlgorithm
             if (chances[i + 1] < GeneticAlgorithm.crossoverChance)
             {
                 NeuralNetwork.Crossover(
-                    newGeneration[i].GetComponent<BirdController>().getBrain(),
-                    newGeneration[i + 1].GetComponent<BirdController>().getBrain()
+                    newGeneration[i].GetComponent<BirdController>().GetBrain(),
+                    newGeneration[i + 1].GetComponent<BirdController>().GetBrain()
                     );
             }
             else
@@ -185,8 +185,8 @@ public class GeneticAlgorithm
                 if (Random.Range(0, 1) == 1)
                 {
                     NeuralNetwork.Crossover(
-                        newGeneration[i].GetComponent<BirdController>().getBrain(),
-                        newGeneration[i + 1].GetComponent<BirdController>().getBrain()
+                        newGeneration[i].GetComponent<BirdController>().GetBrain(),
+                        newGeneration[i + 1].GetComponent<BirdController>().GetBrain()
                     );
                 }
             }

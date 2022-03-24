@@ -117,7 +117,7 @@ public class GameManagerSimulation : MonoBehaviour
         pipesSpawnLocation = pipeReference.transform.position + pipeReference.GetComponent<PipeController>().spawnPosition;
 
         // Set the bird ref as a prefab
-        birdReference.GetComponent<BirdController>().markAsPrefab();
+        birdReference.GetComponent<BirdController>().MarkAsPrefab();
 
         // Instantiate de birds
         if (birds == null)
@@ -160,7 +160,7 @@ public class GameManagerSimulation : MonoBehaviour
         remainingBirds = 0;
         for (int i = 0; i < populationSize; i++)
         {
-            if (!birds[i].GetComponent<BirdController>().getHitStatus())
+            if (!birds[i].GetComponent<BirdController>().GetHitStatus())
             {
                 noMoreBirds = false;
                 remainingBirds++;
@@ -204,7 +204,7 @@ public class GameManagerSimulation : MonoBehaviour
             int totalScore = 0;
             for (int i = 0; i < birds.Length; i++)
             {
-                totalScore += birds[i].GetComponent<BirdController>().getScore();
+                totalScore += birds[i].GetComponent<BirdController>().GetScore();
                 Debug.Log("[DEBUG] [FROM GameManagerFB.restartGame()] totalScore: " + totalScore);
             }
             float mean = ((float)totalScore) / birds.Length;
@@ -212,7 +212,7 @@ public class GameManagerSimulation : MonoBehaviour
 
             int birdsOverMean = 0;
             for (int i = 0; i < birds.Length; i++)
-                if (birds[i].GetComponent<BirdController>().getScore() >= mean)
+                if (birds[i].GetComponent<BirdController>().GetScore() >= mean)
                     birdsOverMean++;
             foutInfo.WriteLine("Number of birds with a score over mean score: " + birdsOverMean);
 
@@ -222,10 +222,10 @@ public class GameManagerSimulation : MonoBehaviour
 
         // Retain a copy of the best bird until this moment
         for (int i = 0; i < birds.Length; i++)
-            if (bestBird == null || bestBird.score < birds[i].GetComponent<BirdController>().getScore())
+            if (bestBird == null || bestBird.score < birds[i].GetComponent<BirdController>().GetScore())
             {
-                bestBird.brain = new NeuralNetwork(birds[i].GetComponent<BirdController>().getBrain());
-                bestBird.score = birds[i].GetComponent<BirdController>().getScore();
+                bestBird.brain = new NeuralNetwork(birds[i].GetComponent<BirdController>().GetBrain());
+                bestBird.score = birds[i].GetComponent<BirdController>().GetScore();
             }
 
         birds = GeneticAlgorithm.GetNextGeneration(birds);
@@ -239,7 +239,7 @@ public class GameManagerSimulation : MonoBehaviour
         // Then reset all the birds
         for (int i = 0; i < birds.Length; i++)
         {
-            birds[i].GetComponent<BirdController>().reset();
+            birds[i].GetComponent<BirdController>().ResetState();
         }
 
         lastCreatedPipe = Instantiate(pipeReference);
@@ -272,7 +272,7 @@ public class GameManagerSimulation : MonoBehaviour
     {
         int activeBirds = 0;
         foreach (var bird in birds)
-            if (!bird.GetComponent<BirdController>().getHitStatus())
+            if (!bird.GetComponent<BirdController>().GetHitStatus())
                 activeBirds++;
 
         Debug.Log("active birds " + time + ": " + activeBirds);

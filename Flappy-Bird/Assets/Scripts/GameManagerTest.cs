@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManagerTest : MonoBehaviour
 {
+    [Header("References")]
     // Pipe reference for the creation of future objects
     public GameObject pipeReference;
 
@@ -15,19 +16,14 @@ public class GameManagerTest : MonoBehaviour
     public Text runCountText;
 
     // Reference for the passed pipes text object
-    public Text passedPipesText;
-
-    // Reference for the highest passed pipes text object
-    public Text passedPipesHighestText;
+    public Text currentScoreText;
 
     // Reference used to play a sound when a new generation of birds is started or when the simulation ended
     public AudioSource newGenerationAudio;
 
+    [Header("Game settings")]
     // The distance between two pipes
     public float distanceBetweenPipes;
-
-    // Reference to the Clock text object
-    public Text clockText;
 
 
     // Pipe reference to the last created pipe
@@ -40,20 +36,10 @@ public class GameManagerTest : MonoBehaviour
     private GameObject bird;
 
     // Number of pipes passed in the current run
-    private int passedPipesCount = 0;
-
-    // Highest number of pipes passed in all runs
-    private int passedPipesHighestCount = 0;
-
-    // Number of maximum frames per second
-    private int targetFrameRate = 60;
+    private int currentScore = 0;
 
     // Number of runs
     private int runCount = 1;
-
-    // How much time passed since the simulation started
-    private float timePassed = -1f;
-
 
     // Constants
     private int TIME_SCALE = 2;
@@ -83,7 +69,7 @@ public class GameManagerTest : MonoBehaviour
     {
         // Framerate settings
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
+        Application.targetFrameRate = 60;
 
         // Mark the reference as a prefab
         pipeReference.GetComponent<PipeController>().MarkAsPrefab();
@@ -93,17 +79,17 @@ public class GameManagerTest : MonoBehaviour
         pipesSpawnLocation = pipeReference.transform.position + pipeReference.GetComponent<PipeController>().spawnPosition;
 
         // Set the bird ref as a prefab
-        birdReference.GetComponent<BirdController>().markAsPrefab();
+        birdReference.GetComponent<BirdController>().MarkAsPrefab();
 
-        // Instantiate de player
+        // Instantiate the player
         bird = Instantiate(birdReference);
+        bird.GetComponent<BirdController>().SetBrain(GlobalManager.GetInstance().pathToBrain);
 
         // Set the generation count
         runCountText.text = "Run: " + runCount;
 
-        // Set the current and highest score
-        passedPipesText.text = "Current score: " + passedPipesCount;
-        passedPipesHighestText.text = "High score: " + passedPipesHighestCount;
+        // Set the current score
+        currentScoreText.text = "Current score: " + currentScore;
     }
     private void Update()
     {
@@ -114,12 +100,12 @@ public class GameManagerTest : MonoBehaviour
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
         Time.timeScale = TIME_SCALE;
 
-        // Update time
-        SetClockTime();
-
         // The bird is dead
-        if (!bird.activeSelf)
+        if (bird.GetComponent<BirdController>().GetHitStatus())
+        {
             RestartGame();
+            return;
+        }
 
         // Check the distance between the last created pipe and the original start point
         if (pipesSpawnLocation.x - lastCreatedPipe.transform.position.x > distanceBetweenPipes)
@@ -136,6 +122,9 @@ public class GameManagerTest : MonoBehaviour
     /// </summary>
     private void RestartGame()
     {
+        Time.timeScale = 0;
+        Debug.Log("[INFO] Stopped the game!");
+
         // First delete the pipes
         var pipesToBeDeleted = GameObject.FindGameObjectsWithTag("FullPipe");
         for (int i = 0; i < pipesToBeDeleted.Length; i++)
@@ -143,11 +132,11 @@ public class GameManagerTest : MonoBehaviour
                 Destroy(pipesToBeDeleted[i]);
 
         // Reset the bird (player)
-        bird.GetComponent<BirdController>().reset();
+        bird.GetComponent<BirdController>().ResetState();
 
         // Reset the score
-        passedPipesCount = 0;
-        passedPipesText.text = "Current score: " + passedPipesCount;
+        currentScore = 0;
+        currentScoreText.text = "Current score: " + currentScore;
 
         lastCreatedPipe = Instantiate(pipeReference);
 
@@ -157,28 +146,6 @@ public class GameManagerTest : MonoBehaviour
 
         // Play a sound to alert the user that a new generation was started
         newGenerationAudio.Play();
-    }
-
-    /// <summary>
-    /// Private method that handles the clock time display and calculations.
-    /// </summary>
-    private void SetClockTime()
-    {
-        // This also takes in account the time that the ConfigScene was loaded
-        if (timePassed == -1f)
-        {
-            timePassed = Time.realtimeSinceStartup;
-            return;
-        }
-
-        // Number of seconds for the simulation ONLY (ConfigScene not included)
-        int realtime = (int)(Time.realtimeSinceStartup - timePassed);
-
-        string hour = (realtime / 3600).ToString().PadLeft(2, '0');
-        string minute = (realtime % 3600 / 60).ToString().PadLeft(2, '0');
-        string second = (realtime % 60).ToString().PadLeft(2, '0');
-
-        clockText.text = hour + ":" + minute + ":" + second;
     }
 
     /// <summary>
@@ -195,7 +162,7 @@ public class GameManagerTest : MonoBehaviour
     /// </summary>
     public void IncreaseScore()
     {
-        passedPipesCount++;
-        passedPipesText.text = "Current score: " + passedPipesCount;
+        currentScore++;
+        currentScoreText.text = "Current score: " + currentScore;
     }
 }
