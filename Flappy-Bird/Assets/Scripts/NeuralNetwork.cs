@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Neural network class used in the NeuroEvolution algorithm
+/// <summary>
+/// Neural network class used in the NeuroEvolution algorithm
+/// </summary>
 public class NeuralNetwork
 {
     private Matrix[] weightsArray;
@@ -11,10 +13,13 @@ public class NeuralNetwork
     // For debugging purposes
     public System.Guid UUID = System.Guid.NewGuid();
 
-    // Create a neural network with the configuration provided.
-    // Each element of the array represents how many nodes that layer must have.
-    // The weights are initilized using a Xavier approach.
-    // The biases are between 0 and 1.
+    /// <summary>
+    /// Create a neural network with the configuration provided.<br></br>
+    /// Each element of the array represents how many nodes that layer must have.<br></br>
+    /// The weights are initilized using a Xavier approach.<br></br>
+    /// The biases are between 0 and 1.
+    /// </summary>
+    /// <param name="layers">integer vector representing how many nodes each layer should have</param>
     public NeuralNetwork(int[] layers)
     {
         weightsArray = new Matrix[layers.Length - 1];
@@ -34,7 +39,10 @@ public class NeuralNetwork
         }
     }
 
-    // Construct a new neural network from a given one
+    /// <summary>
+    /// Construct a new neural network from a given one
+    /// </summary>
+    /// <param name="n">the neural network to copy</param>
     public NeuralNetwork(NeuralNetwork n)
     {
         weightsArray = new Matrix[n.weightsArray.Length];
@@ -47,11 +55,53 @@ public class NeuralNetwork
         }
     }
 
-    // Public function which implements the feed-forward algorithm.
-    // 
-    // The return value is argmax(output) OR true/false if it is only one output value
-    // (it is compared with 0.5 - greater means true, lower/equal means false) (NOT ACCURATE ANYMORE)
-    public int guess(Matrix inputs)
+    /// <summary>
+    /// Creates a NeuralNetwork object from a given file, if the format is respected.<br></br>
+    /// </summary>
+    /// <param name="filePath">the file from which to read data</param>
+    public NeuralNetwork(string filePath)
+    {
+        System.IO.StreamReader fin = new System.IO.StreamReader(filePath);
+
+        int rows, columns;
+        string[] lines;
+        string[] values;
+
+        lines = fin.ReadToEnd().Split('\n');
+
+        weightsArray = new Matrix[lines.Length];
+        biasArray = new Matrix[lines.Length];
+
+        for (int lineCount = 0; lineCount < lines.Length; lineCount++)
+        {
+            values = lines[lineCount].Split(' ');
+            int k = 0;
+
+            // Read weights data
+            rows = int.Parse(values[k++]);
+            columns = int.Parse(values[k++]);
+            weightsArray[lineCount] = new Matrix(rows, columns);
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
+                    weightsArray[lineCount].set(i, j, float.Parse(values[k++]));
+
+            // Read biases data
+            rows = int.Parse(values[k++]);
+            columns = int.Parse(values[k++]);
+            biasArray[lineCount] = new Matrix(rows, columns);
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
+                    biasArray[lineCount].set(i, j, float.Parse(values[k++]));
+        }
+    }
+
+    /// <summary>
+    /// Public function which implements the feed-forward algorithm.<br></br>
+    /// Raises errors if something does not go right.
+    /// </summary>
+    /// <param name="inputs">the input matrix</param>
+    /// <returns>argmax(output) OR true/false if it is only one output value</returns>
+    public int Guess(Matrix inputs)
     {
         Matrix layerVar = inputs;
 
@@ -65,7 +115,7 @@ public class NeuralNetwork
             layerVar = (weightsArray[i] * layerVar) + biasArray[i];
 
             // Activate it
-            sigmoidActivation(layerVar);
+            SigmoidActivation(layerVar);
         }
 
         // For Flappy Bird only!!
@@ -73,8 +123,11 @@ public class NeuralNetwork
         return (layerVar.at(0, 0) > layerVar.at(1, 0) ? 1 : 0);
     }
 
-    // Applies sigmoid activation on a given matrix (in-place)
-    private void sigmoidActivation(Matrix m1)
+    /// <summary>
+    /// Applies sigmoid activation on a given matrix (in-place).
+    /// </summary>
+    /// <param name="m1">the matrix to apply to</param>
+    private void SigmoidActivation(Matrix m1)
     {
         float value;
         for (int i = 0; i < m1.getRows(); i++)
@@ -86,8 +139,11 @@ public class NeuralNetwork
             }
     }
 
-    // Applies softmax activation on a given matrix (in-place)
-    private void softmaxActivation(Matrix m1)
+    /// <summary>
+    /// Applies softmax activation on a given matrix (in-place)
+    /// </summary>
+    /// <param name="m1">the matrix to apply to</param>
+    private void SoftmaxActivation(Matrix m1)
     {
         float sum = 0;
         float value;
@@ -102,10 +158,13 @@ public class NeuralNetwork
                 m1.set(i, j, value);
             }
     }
-    
-    // Mutates with a specific rate the weights of the neural network
-    // Mutation means adding a predefined value to a given weight
-    public void mutate(float chance)
+
+    /// <summary>
+    /// Mutates with a specific rate the weights of the neural network.<br></br>
+    /// Mutation means adding a predefined value to a given weight
+    /// </summary>
+    /// <param name="chance">mutation rate on a scale from 0f to 1f</param>
+    public void Mutate(float chance)
     {
         for (int i = 0; i < weightsArray.Length; i++)
         {
@@ -133,21 +192,49 @@ public class NeuralNetwork
     /// where each DATA_WEIGHTS gets its size from the product of ROWS_WEIGHTS and COLUMNS_WEIGHTS (the same goes for BIAS). <br></br>
     /// </summary>
     /// <param name="path">path to the file (commonly ended in ".txt")</param>
-    public void export(string path)
+    public void Export(string path)
     {
         using (System.IO.StreamWriter fout = new System.IO.StreamWriter(path))
         {
             for (int i = 0; i < weightsArray.Length; i++)
             {
+                // Write weights
                 fout.Write(weightsArray[i].getRows() + " ");
                 fout.Write(weightsArray[i].getColumns() + " ");
                 for (int j = 0; j < weightsArray[i].getRows(); j++)
                     for (int k = 0; k < weightsArray[i].getColumns(); k++)
                         fout.Write(weightsArray[i].at(j, k) + " ");
 
-                fout.WriteLine("");
+                // Write biases
+                fout.Write(biasArray[i].getRows() + " ");
+                fout.Write(biasArray[i].getColumns() + " ");
+                for (int j = 0; j < biasArray[i].getRows(); j++)
+                    for (int k = 0; k < biasArray[i].getColumns(); k++)
+                            fout.Write(biasArray[i].at(j, k) + " ");
+
+                if (i + 1 != weightsArray.Length)
+                    fout.WriteLine("");
             }
         }
+    }
+    
+    /// <summary>
+    /// Default method for displaying (usually for debugging purposes) a NeuralNetwork object.
+    /// </summary>
+    /// <returns>a string representation of the current object</returns>
+    public override string ToString()
+    {
+        string result = "";
+        result += "Weights: \n";
+
+        for (int i = 0; i < weightsArray.Length; i++)
+            result += weightsArray[i].ToString() + "\n";
+
+        result += "Biases: \n";
+        for (int i = 0; i < biasArray.Length; i++)
+            result += biasArray[i].ToString() + "\n";
+
+        return result;
     }
 
     /// <summary>
@@ -160,7 +247,7 @@ public class NeuralNetwork
     /// </summary>
     /// <param name="n1">the first individual for crossover</param>
     /// <param name="n2">the second individual for crossover</param>
-    static public void crossover(NeuralNetwork n1, NeuralNetwork n2)
+    static public void Crossover(NeuralNetwork n1, NeuralNetwork n2)
     {
         if (n1.weightsArray.Length != n2.weightsArray.Length)
         {

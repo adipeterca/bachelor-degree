@@ -11,7 +11,7 @@ public class GeneticAlgorithm
     // The chance that two individuals will perform crossover
     static private float crossoverChance = 0.7f;
 
-    // The chance that an individual will mutate
+    // The chance that an individual will Mutate
     static private float mutationChance = 0.03f;
 
     // Fitness scores for each individual
@@ -128,7 +128,7 @@ public class GeneticAlgorithm
     {
         for (int i = 0; i < newGeneration.Length; i++)
         {
-            newGeneration[i].GetComponent<BirdController>().getBrain().mutate(mutationChance);
+            newGeneration[i].GetComponent<BirdController>().getBrain().Mutate(mutationChance);
         }
     }
 
@@ -174,7 +174,7 @@ public class GeneticAlgorithm
             // If both individuals have chances smaller than the predefined crossoverChance, do crossover
             if (chances[i + 1] < GeneticAlgorithm.crossoverChance)
             {
-                NeuralNetwork.crossover(
+                NeuralNetwork.Crossover(
                     newGeneration[i].GetComponent<BirdController>().getBrain(),
                     newGeneration[i + 1].GetComponent<BirdController>().getBrain()
                     );
@@ -184,7 +184,7 @@ public class GeneticAlgorithm
                 // If the second individual has a higher chance than the crossoverChance
                 if (Random.Range(0, 1) == 1)
                 {
-                    NeuralNetwork.crossover(
+                    NeuralNetwork.Crossover(
                         newGeneration[i].GetComponent<BirdController>().getBrain(),
                         newGeneration[i + 1].GetComponent<BirdController>().getBrain()
                     );

@@ -287,7 +287,7 @@ public class GameManagerSimulation : MonoBehaviour
         Debug.Log("[INFO] [FROM GameManagerFB.quitSimulation()] Simulation over!");
 
         // Export the best bird
-        bestBird.brain.export("bestBird.txt");
+        bestBird.brain.Export("bestBird.txt");
 
         Application.Quit();
     }
