@@ -32,6 +32,9 @@ public class BirdController : MonoBehaviour
     // The NeuralNetwork which will make decisions
     private NeuralNetwork brain;
 
+    // The inputs to the NeuralNetwork class
+    private Matrix inputs= new Matrix(5, 1);
+
     // Static reference to the closest pipe
     static private GameObject closestPipe;
 
@@ -39,8 +42,9 @@ public class BirdController : MonoBehaviour
     {
         // Pick a random color for the bird
         gameObject.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-
         top = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
+        rb = GetComponent<Rigidbody2D>();
+        UUID = System.Guid.NewGuid().ToString();
 
         // Create the brain if it does not exist
         if (brain == null)
@@ -52,13 +56,6 @@ public class BirdController : MonoBehaviour
             // - the y position of the bottom pipe (calculated by adding -2 to the y position of the Pipe object)
             brain = new NeuralNetwork(new int[3] { 5, 40, 2 });
 
-        // Assign references
-        rb = GetComponent<Rigidbody2D>();
-
-        // Assign UUID
-        UUID = System.Guid.NewGuid().ToString();
-
-        // Assign values
         InitState();
     }
 
@@ -92,11 +89,8 @@ public class BirdController : MonoBehaviour
                 return;
             }
 
-            // Use the neural network to make predictions
-            Matrix inputs = new Matrix(5, 1);
-            
-            // The y position of the bird (between [-4.5f, 4.5f]
-            inputs.set(0, 0, transform.position.y / 4.5f);
+            // The y position of the bird (between [-mainCamera.size, mainCamera.size])
+            inputs.set(0, 0, transform.position.y / top);
 
             // The y velocity of the bird (divided by 10)
             inputs.set(1, 0, rb.velocity.y / 10.0f);
@@ -108,13 +102,15 @@ public class BirdController : MonoBehaviour
             inputs.set(2, 0, (closestPipe.transform.position.x - 0.5f) / 15.0f);
 
             // Set top pipe y position
-            inputs.set(3, 0, (closestPipe.transform.position.y + 2.0f) / 4.5f);
-            
+            // inputs.set(3, 0, (closestPipe.transform.position.y + 2.0f) / 4.5f);
+            inputs.set(3, 0, closestPipe.GetComponent<PipeController2>().topLeftCorner.transform.position.y);
+
             // Set bottom pipe y position
-            inputs.set(4, 0, (closestPipe.transform.position.y - 2.0f) / 4.5f);
+            // inputs.set(4, 0, (closestPipe.transform.position.y - 2.0f) / 4.5f);
+            inputs.set(4, 0, closestPipe.GetComponent<PipeController2>().bottomLeftCorner.transform.position.y);
 
             // Debug.Log("[DEBUG] [FROM BirdController.Update()] closestPipe transform position: " + closestPipe.transform.position);
-            // Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: <color=#00ff00>" + inputs + "</color>");
+            Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: <color=#00ff00>" + inputs + "</color>");
 
             if (brain.Guess(inputs) == 1)
                 Jump();
@@ -155,8 +151,6 @@ public class BirdController : MonoBehaviour
 
         Vector2 jumpForce = new Vector2(0, 1000 * jumpForceMultiplier);
         rb.AddRelativeForce(jumpForce);
-
-        // DisplayDebugInfo("Jumped");
     }
     
     /// <summary>
@@ -179,13 +173,9 @@ public class BirdController : MonoBehaviour
         {
             hitStatus = true;
             CancelVelocity();
-            // Debug.Log("[DEBUG] [FROM BirdController.OnTriggerEnter2D()] Hit a pipe! Final score: " + score);
 
             // We don't destroy the gameObject, because we want to access the score for later user in the GA
-            // Destroy(gameObject, 2);
             gameObject.SetActive(false);
-
-            // Debug.Log("[DEBUG] [FROM BirdController.OnTriggerEnter2D()] UUID of object set to inactive: " + UUID);
         }
     }
 

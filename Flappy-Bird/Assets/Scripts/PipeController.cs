@@ -13,11 +13,12 @@ public class PipeController : MonoBehaviour
     // The position at which this object will be destroyed
     public Vector3 destroyPosition;
 
-    // The gap size
-    public float gapSize;
-
     // The movement speed multiplier for gliding to the left
     public float speedMultiplier;
+
+
+    // The gap size
+    private float gapSize = 5;
 
     // A speed vector
     private Vector3 speed;
@@ -40,10 +41,12 @@ public class PipeController : MonoBehaviour
         top = transform.Find("TopPipe");
         bottom = transform.Find("BottomPipe");
 
-        top.transform.position += new Vector3(0, gapSize / 2, 0);
-        bottom.transform.position += new Vector3(0, -gapSize / 2, 0);
+        top.transform.localPosition += new Vector3(0, gapSize / 2, 0);
+        bottom.transform.localPosition += new Vector3(0, -gapSize / 2, 0);
 
-        float y = Random.Range(-2.0f, 2.0f);
+        // Extract a value from {-4, -3.5, -3, -2.5, ..., 2.5, 3, 3.5, 4}
+        float y = 0.5f * Random.Range(-8, 9);
+        Debug.Log("y = " + y);
 
         // Set the spawn location
         transform.position = new Vector3(spawnPosition.x, y, spawnPosition.z);

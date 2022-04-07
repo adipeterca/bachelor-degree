@@ -21,16 +21,9 @@ public class GameManagerTest : MonoBehaviour
     // Reference used to play a sound when a new generation of birds is started or when the simulation ended
     public AudioSource newGenerationAudio;
 
-    [Header("Game settings")]
-    // The distance between two pipes
-    public float distanceBetweenPipes;
-
 
     // Pipe reference to the last created pipe
     private GameObject lastCreatedPipe;
-
-    // Initial spawn location for the pipes
-    private Vector3 pipesSpawnLocation;
 
     // Bird reference (the player)
     private GameObject bird;
@@ -40,9 +33,6 @@ public class GameManagerTest : MonoBehaviour
 
     // Number of runs
     private int runCount = 1;
-
-    // Constants
-    private int TIME_SCALE = 2;
 
     public static GameManagerTest Instance
     {
@@ -76,8 +66,6 @@ public class GameManagerTest : MonoBehaviour
 
         lastCreatedPipe = Instantiate(pipeReference);
 
-        pipesSpawnLocation = pipeReference.transform.position + pipeReference.GetComponent<PipeController>().spawnPosition;
-
         // Set the bird ref as a prefab
         birdReference.GetComponent<BirdController>().MarkAsPrefab();
 
@@ -91,14 +79,11 @@ public class GameManagerTest : MonoBehaviour
         // Set the current score
         currentScoreText.text = "Current score: " + currentScore;
     }
+
     private void Update()
     {
-        // If the game is stopped, return
         if (Time.timeScale == 0)
             return;
-
-        // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
-        Time.timeScale = TIME_SCALE;
 
         // The bird is dead
         if (bird.GetComponent<BirdController>().GetHitStatus())
@@ -108,10 +93,9 @@ public class GameManagerTest : MonoBehaviour
         }
 
         // Check the distance between the last created pipe and the original start point
-        if (pipesSpawnLocation.x - lastCreatedPipe.transform.position.x > distanceBetweenPipes)
+        if (30 - lastCreatedPipe.transform.position.x > 15)
         {
             lastCreatedPipe = Instantiate(pipeReference);
-            // Debug.Log("Created a new pipe!");
         }
 
     }
@@ -123,26 +107,25 @@ public class GameManagerTest : MonoBehaviour
     private void RestartGame()
     {
         Time.timeScale = 0;
-        Debug.Log("[INFO] Stopped the game!");
 
         // First delete the pipes
         var pipesToBeDeleted = GameObject.FindGameObjectsWithTag("FullPipe");
         for (int i = 0; i < pipesToBeDeleted.Length; i++)
-            if (!pipesToBeDeleted[i].GetComponent<PipeController>().IsMarkedAsPrefab())
-                Destroy(pipesToBeDeleted[i]);
+            // if (!pipesToBeDeleted[i].GetComponent<PipeController>().IsMarkedAsPrefab())
+            Destroy(pipesToBeDeleted[i]);
 
-        // Reset the bird (player)
         bird.GetComponent<BirdController>().ResetState();
 
-        // Reset the score
+        // Update GUI
         currentScore = 0;
         currentScoreText.text = "Current score: " + currentScore;
 
+        runCount++;
+        runCountText.text = "Run count: " + runCount;
+
         lastCreatedPipe = Instantiate(pipeReference);
 
-        // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
-        Time.timeScale = TIME_SCALE;
-        Debug.Log("[INFO] Restarted the game!");
+        Time.timeScale = 1;
 
         // Play a sound to alert the user that a new generation was started
         newGenerationAudio.Play();
