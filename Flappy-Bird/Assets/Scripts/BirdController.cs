@@ -5,14 +5,11 @@ using UnityEngine;
 // Script used to control the movement of a bird instance.
 public class BirdController : MonoBehaviour
 {
-    // Useful for debugging
-    public string UUID;
-
     // The jump force multiplier 
     public float jumpForceMultiplier;
 
-    // Debuging information
-    public bool debugInfo;
+    // Is this bird controlled by a player?
+    public bool playerControlled;
 
     // Reference to the rigidbody component used in force application
     private Rigidbody2D rb;
@@ -64,9 +61,6 @@ public class BirdController : MonoBehaviour
         // Assign references
         rb = GetComponent<Rigidbody2D>();
 
-        // Assign UUID
-        UUID = System.Guid.NewGuid().ToString();
-
         // Assign values
         InitState();
     }
@@ -101,8 +95,15 @@ public class BirdController : MonoBehaviour
                 return;
             }
 
+            if (playerControlled)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                    Jump();
+                return;
+            }
+
             // Use the neural network to make predictions
-            Matrix inputs = new Matrix(5, 1);
+                Matrix inputs = new Matrix(5, 1);
             
             // The y position of the bird (between [-4.5f, 4.5f]
             inputs.set(0, 0, transform.position.y / 4.5f);
@@ -162,7 +163,7 @@ public class BirdController : MonoBehaviour
     {
         CancelVelocity();
 
-        Vector2 jumpForce = new Vector2(0, 1000 * jumpForceMultiplier);
+        Vector2 jumpForce = new Vector2(0, 10 * jumpForceMultiplier);
         rb.AddRelativeForce(jumpForce);
 
         // DisplayDebugInfo("Jumped");

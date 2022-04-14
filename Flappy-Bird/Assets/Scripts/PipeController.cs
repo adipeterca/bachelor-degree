@@ -34,7 +34,7 @@ public class PipeController : MonoBehaviour
     private void Start()
     {
         // Set the speed value
-        speed = new Vector3(-10, 0, 0);
+        speed = new Vector3(-20, 0, 0);
 
         // Get the references
         top = transform.Find("TopPipe");

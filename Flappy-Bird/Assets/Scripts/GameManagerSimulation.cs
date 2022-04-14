@@ -76,7 +76,7 @@ public class GameManagerSimulation : MonoBehaviour
     private BestBird bestBird = new BestBird();
 
     // Constants
-    private int TIME_SCALE = 2;
+    private int TIME_SCALE = 1;
 
     // Filename for each run to store information into
     private string filenameInfo = "INFO_run_" + System.DateTime.Now.Ticks + ".txt";

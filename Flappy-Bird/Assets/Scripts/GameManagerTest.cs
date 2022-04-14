@@ -49,7 +49,7 @@ public class GameManagerTest : MonoBehaviour
     private int lastScore;
 
     // Constants
-    private int TIME_SCALE = 2;
+    private int TIME_SCALE = 1;
 
     public static GameManagerTest Instance
     {
