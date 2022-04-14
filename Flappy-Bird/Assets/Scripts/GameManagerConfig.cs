@@ -12,6 +12,9 @@ public class GameManagerConfig : MonoBehaviour
     // Reference for PopulationSizeText object
     public Text populationSizeText;
 
+    // The target score to evolve towards
+    public Text targetScoreText;
+
     // Reference for InfoText object
     public Text infoText;
 
@@ -21,8 +24,14 @@ public class GameManagerConfig : MonoBehaviour
     // Public reference to the PathText object
     public Text pathText;
 
+    // Records whether or not to simulate the evolution starting from a given bird
+    public Toggle evolveFromBird;
+
+    // Same as above
+    public Toggle evolveFromBirdWithScore;
+
     // List of different menus
-    [Tooltip("index 0 - simulate evolution\nindex 1 - test a bird")]
+    [Tooltip("index 0 - simulate evolution\nindex 1 - test a bird\nindex 2 - simulate evolution with score")]
     public GameObject[] menuArray;
 
     // Color for logs tagged with [INFO]
@@ -48,7 +57,58 @@ public class GameManagerConfig : MonoBehaviour
     }
 
     /// <summary>
-    /// Public method which handles the type of menu to display ("Run a bird" or "Simulate evolution").
+    /// Callback method for updating the selection for the "Start from bird" toggle.
+    /// If set to true, it will generate the population starting from the given "startBird.txt" file.
+    /// </summary>
+    public void UpdateToggle()
+    {
+        if (!System.IO.File.Exists("startBird.txt"))
+        {
+            infoText.text = string.Format("<color={0}>[ERROR] The \"startBird.txt\" file does not exist!</color>\n", errorColor);
+            evolveFromBird.isOn = false;
+            return;
+        }
+
+        if (evolveFromBird.isOn)
+        {
+            infoText.text = string.Format("<color={0}>[INFO] Start bird selected.</color>\n", infoColor);
+        }
+        else
+        {
+            infoText.text = string.Format("<color={0}>[INFO] Start bird deselected.</color>\n", infoColor);
+        }
+        GlobalManager.GetInstance().evolveFromStartBird = evolveFromBird.isOn;
+    }
+
+    /// <summary>
+    /// Callback method for updating the selection for the "Start from bird" toggle.
+    /// If set to true, it will generate the population starting from the given "startBird.txt" file.
+    /// </summary>
+    public void UpdateToggleWithScore()
+    {
+        if (!System.IO.File.Exists("startBird.txt"))
+        {
+            infoText.text = string.Format("<color={0}>[ERROR] The \"startBird.txt\" file does not exist!</color>\n", errorColor);
+            evolveFromBirdWithScore.isOn = false;
+            return;
+        }
+
+        if (evolveFromBirdWithScore.isOn)
+        {
+            infoText.text = string.Format("<color={0}>[INFO] Start bird selected.</color>\n", infoColor);
+        }
+        else
+        {
+            infoText.text = string.Format("<color={0}>[INFO] Start bird deselected.</color>\n", infoColor);
+        }
+        GlobalManager.GetInstance().evolveFromStartBird = evolveFromBirdWithScore.isOn;
+    }
+
+    /// <summary>
+    /// Public method which handles the type of menu to display.<br></br>
+    /// 0 means Simulate evolution (up until a number of generetations)
+    /// 1 means Test a bird
+    /// 2 means Simulate evolution with a target score
     /// </summary>
     public void UpdateSelection()
     {
@@ -60,6 +120,8 @@ public class GameManagerConfig : MonoBehaviour
             menuType = 0;
         else if (selected == "Test a bird")
             menuType = 1;
+        else if (selected == "Simulate evolution with score")
+            menuType = 2;
 
         // Iterate through all menus and hide the ones which are not needed.
         for (int i = 0; i < menuArray.Length; i++)
@@ -80,6 +142,8 @@ public class GameManagerConfig : MonoBehaviour
             SimulateEvolution();
         else if (menuType == 1)
             TestABird();
+        else if (menuType == 2)
+            SimulateEvolutionWithScore();
     }
 
     /// <summary>
@@ -160,6 +224,48 @@ public class GameManagerConfig : MonoBehaviour
     }
 
     /// <summary>
+    /// Private function used to transition from the current scene to the simulation (with score).<br></br>
+    /// It validates the given input and sends it to the next scene.
+    /// </summary>
+    private void SimulateEvolutionWithScore()
+    {
+        string info = "";
+        bool containsErrors = false;
+        if (targetScoreText.text == "" || ValidateInput(targetScoreText.text))
+            info += string.Format("<color={0}>[INFO] Target score : " + (targetScoreText.text == "" ? "100" : targetScoreText.text) + "</color>\n", infoColor);
+        else
+        {
+            info += string.Format("<color={0}>[ERROR] Target score must be a positive number!</color>\n", errorColor);
+            containsErrors = true;
+        }
+        if (populationSizeText.text == "" || ValidateInput(populationSizeText.text))
+            info += string.Format("<color={0}>[INFO] Population size number : " + (populationSizeText.text == "" ? "100" : populationSizeText.text) + "</color>\n", infoColor);
+        else
+        {
+            info += string.Format("<color={0}>[ERROR] Population size must be a positive number!</color>\n", errorColor);
+            containsErrors = true;
+        }
+
+        // Display the information
+        infoText.text = info;
+
+        // Do not advance if there are errors present
+        if (containsErrors)
+            return;
+
+        int targetScore = (targetScoreText.text == "" ? 150 : int.Parse(targetScoreText.text));
+        int populationSize = (populationSizeText.text == "" ? 100 : int.Parse(populationSizeText.text));
+
+        // Store the values for future use
+        GlobalManager.GetInstance().targetScore = targetScore;
+        GlobalManager.GetInstance().populationSize = populationSize;
+
+        infoText.text += string.Format("<color={0}>[INFO] Starting the simulation...</color>\n", infoColor);
+
+        StartCoroutine(LoadNextScene());
+    }
+
+    /// <summary>
     /// Private method for creating a wait effect for the next scene.
     /// </summary>
     private IEnumerator LoadNextScene()
@@ -177,6 +283,8 @@ public class GameManagerConfig : MonoBehaviour
             SceneManager.LoadScene("SimulateEvolutionScene");
         else if (menuType == 1)
             SceneManager.LoadScene("TestABirdScene");
+        else if (menuType == 2)
+            SceneManager.LoadScene("SimulateEvolutionWithScoreScene");
 
     }
 
@@ -188,5 +296,17 @@ public class GameManagerConfig : MonoBehaviour
     private bool ValidateInput(string number)
     {
         return number[0] != '-';
+    }
+
+    /// <summary>
+    /// Public method for exiting the simulation.
+    /// </summary>
+    public void Quit()
+    {
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                Application.Quit();
+        #endif
     }
 }

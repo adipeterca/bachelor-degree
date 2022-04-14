@@ -5,16 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary>
-/// Utility class for storing information about the best performing bird.
-/// </summary>
-public class BestBird
-{
-    public NeuralNetwork brain;
-    public int score;
-}
-
-public class GameManagerSimulation : MonoBehaviour
+public class GameManagerSimulationWithScore : MonoBehaviour
 {
     [Header("References")]
     // Pipe reference for the creation of future objects
@@ -42,8 +33,8 @@ public class GameManagerSimulation : MonoBehaviour
     // Number of birds (initial population size)
     public int populationSize;
 
-    // The maximum number of generations (the game stops as soon as it has reached this point)
-    public int maxGenerationCount;
+    // The maximum score (the game stops at it)
+    public int targetScore;
 
     [Header("Game settings")]
 
@@ -81,12 +72,12 @@ public class GameManagerSimulation : MonoBehaviour
     // Filename for each run to store information into
     private string filenameInfo = "INFO_run_" + System.DateTime.Now.Ticks + ".txt";
 
-    private GameManagerSimulation() { }
+    private GameManagerSimulationWithScore() { }
 
     /// <summary>
-    /// Public static method for retrieving the only instance of the GameManagerSimulation.
+    /// Public static method for retrieving the only instance of the GameManagerSimulationWithScore.
     /// </summary>
-    public static GameManagerSimulation Instance
+    public static GameManagerSimulationWithScore Instance
     {
         get;
         private set;
@@ -107,7 +98,7 @@ public class GameManagerSimulation : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // Load values from ConfigScene
-        maxGenerationCount = GlobalManager.GetInstance().maxGenerationCount;
+        targetScore = GlobalManager.GetInstance().targetScore;
         populationSize = GlobalManager.GetInstance().populationSize;
 
         // Mark the reference as a prefab
@@ -129,7 +120,7 @@ public class GameManagerSimulation : MonoBehaviour
         }
 
         // Set the generation count
-        generationCountText.text = "Generation: " + generationCount + " / " + maxGenerationCount;
+        generationCountText.text = "Generation: " + generationCount;
 
         // Set the current score
         currentScoreText.text = "Current score: " + currentScore;
@@ -145,8 +136,8 @@ public class GameManagerSimulation : MonoBehaviour
     }
     private void Update()
     {
-        // Terminate the application as soon as it has reached the maximum number of generations
-        if (generationCount == maxGenerationCount)
+        // Terminate the application as soon as it has reached the target score
+        if (currentScore >= targetScore)
             QuitSimulation();
 
         // If the game is stopped, return
@@ -184,7 +175,7 @@ public class GameManagerSimulation : MonoBehaviour
             lastCreatedPipe = Instantiate(pipeReference);
             // Debug.Log("Created a new pipe!");
         }
-        
+
     }
 
     /// <summary>
@@ -266,27 +257,11 @@ public class GameManagerSimulation : MonoBehaviour
     }
 
     /// <summary>
-    /// Debug function for displaying to console how many birds are active (as GameObjects).
-    /// </summary>
-    /// <param name="time">at which moment does the calculation take place (can be used as a unique identifier when debugging)</param>
-    private void DebugActiveBirds(string time)
-    {
-        int activeBirds = 0;
-        foreach (var bird in birds)
-            if (!bird.GetComponent<BirdController>().GetHitStatus())
-                activeBirds++;
-
-        Debug.Log("active birds " + time + ": " + activeBirds);
-    }
-
-    /// <summary>
     /// Private method for exiting the simulation.<br></br>
     /// It also exports the best bird so far, if any.
     /// </summary>
     public void QuitSimulation()
     {
-        Debug.Log("[INFO] [FROM GameManagerFB.quitSimulation()] Simulation over!");
-
         // Export the best bird
         bestBird.brain.Export("bestBird.txt");
 

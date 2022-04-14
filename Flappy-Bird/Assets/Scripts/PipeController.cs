@@ -74,7 +74,11 @@ public class PipeController : MonoBehaviour
             {
                 GameManagerTest.Instance.IncreaseScore();
             }
-            
+            else if (SceneManager.GetActiveScene().name == "SimulateEvolutionWithScoreScene")
+            {
+                GameManagerSimulationWithScore.Instance.IncreaseScore();
+            }
+
         }
 
         // Check to see if it should be destroyed

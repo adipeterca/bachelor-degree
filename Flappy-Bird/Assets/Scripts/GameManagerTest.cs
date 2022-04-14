@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManagerTest : MonoBehaviour
@@ -17,6 +18,9 @@ public class GameManagerTest : MonoBehaviour
 
     // Reference for the passed pipes text object
     public Text currentScoreText;
+
+    // Score of the last run
+    public Text lastScoreText;
 
     // Reference used to play a sound when a new generation of birds is started or when the simulation ended
     public AudioSource newGenerationAudio;
@@ -40,6 +44,9 @@ public class GameManagerTest : MonoBehaviour
 
     // Number of runs
     private int runCount = 1;
+
+    // Score of the last run
+    private int lastScore;
 
     // Constants
     private int TIME_SCALE = 2;
@@ -90,6 +97,8 @@ public class GameManagerTest : MonoBehaviour
 
         // Set the current score
         currentScoreText.text = "Current score: " + currentScore;
+
+        lastScoreText.text = "Last score: --";
     }
     private void Update()
     {
@@ -135,8 +144,14 @@ public class GameManagerTest : MonoBehaviour
         bird.GetComponent<BirdController>().ResetState();
 
         // Reset the score
+        lastScore = currentScore;
         currentScore = 0;
         currentScoreText.text = "Current score: " + currentScore;
+
+        runCount++;
+        runCountText.text = "Run count: " + runCount;
+
+        lastScoreText.text = "Last score: " + lastScore;
 
         lastCreatedPipe = Instantiate(pipeReference);
 
@@ -151,9 +166,10 @@ public class GameManagerTest : MonoBehaviour
     /// <summary>
     /// Public method for exiting the simulation.
     /// </summary>
-    public void QuitSimulation()
+    public void QuitTest()
     {
-        Application.Quit();
+        // Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     /// <summary>

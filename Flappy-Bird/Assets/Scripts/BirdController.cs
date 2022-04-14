@@ -44,13 +44,22 @@ public class BirdController : MonoBehaviour
 
         // Create the brain if it does not exist
         if (brain == null)
+        {
             // The neural network will receive as input (must be normalized):
             // - the y position of the bird
             // - the velocity
             // - the x position of the closest pipe
             // - the y position of the top pipe (calculated by adding +2 to the y position of the Pipe object)
             // - the y position of the bottom pipe (calculated by adding -2 to the y position of the Pipe object)
-            brain = new NeuralNetwork(new int[3] { 5, 40, 2 });
+            if (GlobalManager.GetInstance().evolveFromStartBird)
+            {
+                brain = new NeuralNetwork("startBird.txt");
+            }
+            else
+            {
+                brain = new NeuralNetwork(new int[3] { 5, 40, 2 });
+            }
+        }
 
         // Assign references
         rb = GetComponent<Rigidbody2D>();

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestABirdScene.unity
     guid: 161149ae92778ba4caacfde168d3abbd
+  - enabled: 1
+    path: Assets/Scenes/SimulateEvolutionWithScoreScene.unity
+    guid: 2a1503b6be4982941866e8dd8ea20d3f
   m_configObjects: {}
