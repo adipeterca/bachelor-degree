@@ -1,0 +1,2093 @@
+Highest score: 103
+Mean score: 21.20667
+Number of birds with a score over mean score: 12
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 318
+Mean score: 39.41333
+Number of birds with a score over mean score: 39
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 137
+Mean score: 31.44
+Number of birds with a score over mean score: 61
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 251
+Mean score: 61.94667
+Number of birds with a score over mean score: 82
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 320
+Mean score: 96.65334
+Number of birds with a score over mean score: 27
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 197
+Mean score: 65.12
+Number of birds with a score over mean score: 40
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 103
+Mean score: 13.67333
+Number of birds with a score over mean score: 67
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 537
+Mean score: 114.52
+Number of birds with a score over mean score: 50
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 153
+Mean score: 37.14667
+Number of birds with a score over mean score: 62
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 214
+Mean score: 60.02667
+Number of birds with a score over mean score: 13
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 157
+Mean score: 93.24667
+Number of birds with a score over mean score: 39
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 302
+Mean score: 83.8
+Number of birds with a score over mean score: 19
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 140
+Mean score: 84.58
+Number of birds with a score over mean score: 46
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 245
+Mean score: 99.51334
+Number of birds with a score over mean score: 31
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 243
+Mean score: 69.66
+Number of birds with a score over mean score: 114
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 169
+Mean score: 106.1267
+Number of birds with a score over mean score: 57
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 247
+Mean score: 80.81333
+Number of birds with a score over mean score: 12
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 1028
+Mean score: 135.8933
+Number of birds with a score over mean score: 43
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 142
+Mean score: 103.3533
+Number of birds with a score over mean score: 90
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 541
+Mean score: 86.96
+Number of birds with a score over mean score: 34
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 210
+Mean score: 104.52
+Number of birds with a score over mean score: 62
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 201
+Mean score: 139.28
+Number of birds with a score over mean score: 78
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 923
+Mean score: 60.2
+Number of birds with a score over mean score: 20
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 169
+Mean score: 35.62667
+Number of birds with a score over mean score: 64
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 784
+Mean score: 74.30666
+Number of birds with a score over mean score: 13
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 84
+Mean score: 68.86
+Number of birds with a score over mean score: 126
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 226
+Mean score: 95.93333
+Number of birds with a score over mean score: 36
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 245
+Mean score: 99.20667
+Number of birds with a score over mean score: 63
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 782
+Mean score: 112
+Number of birds with a score over mean score: 76
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 76
+Mean score: 49.89333
+Number of birds with a score over mean score: 99
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 154
+Mean score: 70.26667
+Number of birds with a score over mean score: 68
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 380
+Mean score: 89.71333
+Number of birds with a score over mean score: 19
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 144
+Mean score: 69.19334
+Number of birds with a score over mean score: 48
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 784
+Mean score: 164.4733
+Number of birds with a score over mean score: 36
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 693
+Mean score: 129.4533
+Number of birds with a score over mean score: 22
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 205
+Mean score: 109.86
+Number of birds with a score over mean score: 97
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 829
+Mean score: 168.72
+Number of birds with a score over mean score: 58
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 103
+Mean score: 8.906667
+Number of birds with a score over mean score: 17
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 208
+Mean score: 115.86
+Number of birds with a score over mean score: 71
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 1097
+Mean score: 94.20667
+Number of birds with a score over mean score: 19
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 457
+Mean score: 100.7733
+Number of birds with a score over mean score: 84
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 1026
+Mean score: 165.94
+Number of birds with a score over mean score: 42
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 422
+Mean score: 20.89333
+Number of birds with a score over mean score: 32
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 598
+Mean score: 88.86
+Number of birds with a score over mean score: 20
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 1070
+Mean score: 93.22667
+Number of birds with a score over mean score: 71
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 1712
+Mean score: 236.4667
+Number of birds with a score over mean score: 41
+Pipes passed: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 166
+Mean score: 37.82667
+Number of birds with a score over mean score: 73
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 940
+Mean score: 112.0133
+Number of birds with a score over mean score: 65
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1038
+Mean score: 75.52
+Number of birds with a score over mean score: 113
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 77
+Mean score: 35.8
+Number of birds with a score over mean score: 68
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 682
+Mean score: 131.4867
+Number of birds with a score over mean score: 68
+Pipes passed: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 285
+Mean score: 193.4933
+Number of birds with a score over mean score: 110
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 212
+Mean score: 64.66
+Number of birds with a score over mean score: 23
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 206
+Mean score: 59.6
+Number of birds with a score over mean score: 22
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 166
+Mean score: 63.96
+Number of birds with a score over mean score: 107
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 382
+Mean score: 161.1067
+Number of birds with a score over mean score: 58
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 60
+Mean score: 52.50667
+Number of birds with a score over mean score: 135
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 373
+Mean score: 134.64
+Number of birds with a score over mean score: 89
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 379
+Mean score: 98.54
+Number of birds with a score over mean score: 26
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 375
+Mean score: 116.3133
+Number of birds with a score over mean score: 51
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 280
+Mean score: 122.0067
+Number of birds with a score over mean score: 38
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 239
+Mean score: 64.74667
+Number of birds with a score over mean score: 117
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 133
+Mean score: 96.66
+Number of birds with a score over mean score: 97
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 213
+Mean score: 107.8333
+Number of birds with a score over mean score: 99
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 117
+Mean score: 70.5
+Number of birds with a score over mean score: 49
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 626
+Mean score: 211.48
+Number of birds with a score over mean score: 43
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 222
+Mean score: 105.1
+Number of birds with a score over mean score: 88
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 218
+Mean score: 104.52
+Number of birds with a score over mean score: 58
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 551
+Mean score: 114.3733
+Number of birds with a score over mean score: 56
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 264
+Mean score: 99.36
+Number of birds with a score over mean score: 66
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 641
+Mean score: 150.1333
+Number of birds with a score over mean score: 103
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 1154
+Mean score: 93.6
+Number of birds with a score over mean score: 83
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 201
+Mean score: 102.5
+Number of birds with a score over mean score: 60
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 673
+Mean score: 185.52
+Number of birds with a score over mean score: 32
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 605
+Mean score: 281.5133
+Number of birds with a score over mean score: 74
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 1145
+Mean score: 160.6467
+Number of birds with a score over mean score: 109
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 917
+Mean score: 82.22667
+Number of birds with a score over mean score: 28
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 2274
+Mean score: 171.3067
+Number of birds with a score over mean score: 42
+Pipes passed: 29
+-------------------------------------------------------------------------------
+
+
+Highest score: 371
+Mean score: 58.88
+Number of birds with a score over mean score: 19
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 673
+Mean score: 108.42
+Number of birds with a score over mean score: 68
+Pipes passed: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 1634
+Mean score: 242.7467
+Number of birds with a score over mean score: 39
+Pipes passed: 21
+-------------------------------------------------------------------------------
+
+
+Highest score: 1791
+Mean score: 156.7
+Number of birds with a score over mean score: 9
+Pipes passed: 23
+-------------------------------------------------------------------------------
+
+
+Highest score: 952
+Mean score: 219.4267
+Number of birds with a score over mean score: 55
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1054
+Mean score: 158.1533
+Number of birds with a score over mean score: 52
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 1370
+Mean score: 421.1267
+Number of birds with a score over mean score: 53
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 117
+Mean score: 47.24
+Number of birds with a score over mean score: 22
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 511
+Mean score: 123.9533
+Number of birds with a score over mean score: 54
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 1472
+Mean score: 293.5133
+Number of birds with a score over mean score: 34
+Pipes passed: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 986
+Mean score: 281.6267
+Number of birds with a score over mean score: 37
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 760
+Mean score: 163.2533
+Number of birds with a score over mean score: 31
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 1144
+Mean score: 369.9533
+Number of birds with a score over mean score: 51
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1278
+Mean score: 696.1467
+Number of birds with a score over mean score: 73
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 1192
+Mean score: 121.3867
+Number of birds with a score over mean score: 79
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 2639
+Mean score: 646.0867
+Number of birds with a score over mean score: 65
+Pipes passed: 34
+-------------------------------------------------------------------------------
+
+
+Highest score: 975
+Mean score: 365.4933
+Number of birds with a score over mean score: 59
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 478
+Mean score: 45.78
+Number of birds with a score over mean score: 55
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 1056
+Mean score: 144.7667
+Number of birds with a score over mean score: 69
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 1139
+Mean score: 141.7333
+Number of birds with a score over mean score: 16
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1160
+Mean score: 217.88
+Number of birds with a score over mean score: 30
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 2569
+Mean score: 229.5933
+Number of birds with a score over mean score: 44
+Pipes passed: 33
+-------------------------------------------------------------------------------
+
+
+Highest score: 47
+Mean score: 44.65333
+Number of birds with a score over mean score: 139
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 917
+Mean score: 366.3067
+Number of birds with a score over mean score: 57
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1305
+Mean score: 552.9067
+Number of birds with a score over mean score: 77
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 1154
+Mean score: 336.1
+Number of birds with a score over mean score: 51
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 2726
+Mean score: 482.1333
+Number of birds with a score over mean score: 36
+Pipes passed: 35
+-------------------------------------------------------------------------------
+
+
+Highest score: 1460
+Mean score: 118.5333
+Number of birds with a score over mean score: 22
+Pipes passed: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 469
+Mean score: 280.3333
+Number of birds with a score over mean score: 74
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 2461
+Mean score: 649.5467
+Number of birds with a score over mean score: 52
+Pipes passed: 32
+-------------------------------------------------------------------------------
+
+
+Highest score: 1226
+Mean score: 607.6533
+Number of birds with a score over mean score: 81
+Pipes passed: 16
+-------------------------------------------------------------------------------
+
+
+Highest score: 1271
+Mean score: 260.3133
+Number of birds with a score over mean score: 96
+Pipes passed: 16
+-------------------------------------------------------------------------------
+
+
+Highest score: 908
+Mean score: 136.8067
+Number of birds with a score over mean score: 18
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 530
+Mean score: 127.56
+Number of birds with a score over mean score: 29
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 905
+Mean score: 108.3067
+Number of birds with a score over mean score: 21
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 993
+Mean score: 370.94
+Number of birds with a score over mean score: 57
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 2395
+Mean score: 483.86
+Number of birds with a score over mean score: 50
+Pipes passed: 31
+-------------------------------------------------------------------------------
+
+
+Highest score: 873
+Mean score: 583.4533
+Number of birds with a score over mean score: 90
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1139
+Mean score: 434.3467
+Number of birds with a score over mean score: 57
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1452
+Mean score: 302.7667
+Number of birds with a score over mean score: 29
+Pipes passed: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 1442
+Mean score: 147.2067
+Number of birds with a score over mean score: 26
+Pipes passed: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 1408
+Mean score: 224.26
+Number of birds with a score over mean score: 91
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 189
+Mean score: 15.74667
+Number of birds with a score over mean score: 13
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 725
+Mean score: 122.7867
+Number of birds with a score over mean score: 66
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 365
+Mean score: 51.16
+Number of birds with a score over mean score: 46
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 425
+Mean score: 77.4
+Number of birds with a score over mean score: 56
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 818
+Mean score: 175.0933
+Number of birds with a score over mean score: 33
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 832
+Mean score: 241.1267
+Number of birds with a score over mean score: 44
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 1244
+Mean score: 508.9333
+Number of birds with a score over mean score: 72
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 732
+Mean score: 71.48666
+Number of birds with a score over mean score: 20
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 500
+Mean score: 288.7333
+Number of birds with a score over mean score: 86
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 2410
+Mean score: 417.26
+Number of birds with a score over mean score: 62
+Pipes passed: 31
+-------------------------------------------------------------------------------
+
+
+Highest score: 2034
+Mean score: 361.7467
+Number of birds with a score over mean score: 67
+Pipes passed: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 2041
+Mean score: 696.96
+Number of birds with a score over mean score: 54
+Pipes passed: 28
+-------------------------------------------------------------------------------
+
+
+Highest score: 1364
+Mean score: 461.5467
+Number of birds with a score over mean score: 50
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 812
+Mean score: 258.88
+Number of birds with a score over mean score: 69
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 1269
+Mean score: 371.9667
+Number of birds with a score over mean score: 57
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 1128
+Mean score: 345.24
+Number of birds with a score over mean score: 51
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 49
+Mean score: 44.03333
+Number of birds with a score over mean score: 129
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 182
+Mean score: 40.92
+Number of birds with a score over mean score: 45
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 643
+Mean score: 35
+Number of birds with a score over mean score: 20
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 447
+Mean score: 30.57333
+Number of birds with a score over mean score: 67
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 1235
+Mean score: 113.8333
+Number of birds with a score over mean score: 78
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 102
+Mean score: 71.5
+Number of birds with a score over mean score: 99
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 343
+Mean score: 67.92
+Number of birds with a score over mean score: 78
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 1063
+Mean score: 66.32667
+Number of birds with a score over mean score: 24
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 3239
+Mean score: 368.56
+Number of birds with a score over mean score: 49
+Pipes passed: 42
+-------------------------------------------------------------------------------
+
+
+Highest score: 579
+Mean score: 80.83334
+Number of birds with a score over mean score: 48
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 1367
+Mean score: 383.82
+Number of birds with a score over mean score: 51
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 1296
+Mean score: 296.36
+Number of birds with a score over mean score: 62
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 2076
+Mean score: 546.6467
+Number of birds with a score over mean score: 57
+Pipes passed: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 1127
+Mean score: 310.0133
+Number of birds with a score over mean score: 67
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1884
+Mean score: 404.5333
+Number of birds with a score over mean score: 93
+Pipes passed: 25
+-------------------------------------------------------------------------------
+
+
+Highest score: 4426
+Mean score: 529.3867
+Number of birds with a score over mean score: 57
+Pipes passed: 57
+-------------------------------------------------------------------------------
+
+
+Highest score: 349
+Mean score: 108.7667
+Number of birds with a score over mean score: 48
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 929
+Mean score: 473.8467
+Number of birds with a score over mean score: 96
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 3
+Number of birds with a score over mean score: 150
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 1722
+Mean score: 94.94
+Number of birds with a score over mean score: 16
+Pipes passed: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 271
+Mean score: 100.5533
+Number of birds with a score over mean score: 55
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 893
+Mean score: 310.8533
+Number of birds with a score over mean score: 55
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1844
+Mean score: 46.23333
+Number of birds with a score over mean score: 18
+Pipes passed: 24
+-------------------------------------------------------------------------------
+
+
+Highest score: 815
+Mean score: 225.8667
+Number of birds with a score over mean score: 46
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 2315
+Mean score: 91.81333
+Number of birds with a score over mean score: 14
+Pipes passed: 30
+-------------------------------------------------------------------------------
+
+
+Highest score: 1913
+Mean score: 302.7133
+Number of birds with a score over mean score: 57
+Pipes passed: 25
+-------------------------------------------------------------------------------
+
+
+Highest score: 1106
+Mean score: 325.4867
+Number of birds with a score over mean score: 45
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 1532
+Mean score: 299.0333
+Number of birds with a score over mean score: 59
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 1786
+Mean score: 199.5333
+Number of birds with a score over mean score: 27
+Pipes passed: 24
+-------------------------------------------------------------------------------
+
+
+Highest score: 337
+Mean score: 87.90667
+Number of birds with a score over mean score: 107
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 580
+Mean score: 128.8133
+Number of birds with a score over mean score: 25
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 263
+Mean score: 50.37333
+Number of birds with a score over mean score: 33
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 1221
+Mean score: 273.2667
+Number of birds with a score over mean score: 49
+Pipes passed: 16
+-------------------------------------------------------------------------------
+
+
+Highest score: 1952
+Mean score: 487.5133
+Number of birds with a score over mean score: 43
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 243
+Mean score: 119.8867
+Number of birds with a score over mean score: 79
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 1193
+Mean score: 376.62
+Number of birds with a score over mean score: 76
+Pipes passed: 16
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 3
+Number of birds with a score over mean score: 150
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 2167
+Mean score: 301.3267
+Number of birds with a score over mean score: 37
+Pipes passed: 28
+-------------------------------------------------------------------------------
+
+
+Highest score: 1504
+Mean score: 193.8667
+Number of birds with a score over mean score: 92
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 816
+Mean score: 321.6133
+Number of birds with a score over mean score: 72
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 4.62
+Number of birds with a score over mean score: 31
+Pipes passed: 0
+-------------------------------------------------------------------------------
+
+
+Highest score: 2003
+Mean score: 237.66
+Number of birds with a score over mean score: 51
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 1087
+Mean score: 217.0267
+Number of birds with a score over mean score: 56
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 189
+Mean score: 47.56
+Number of birds with a score over mean score: 43
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 1186
+Mean score: 107.8133
+Number of birds with a score over mean score: 75
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 576
+Mean score: 158.7467
+Number of birds with a score over mean score: 58
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 883
+Mean score: 328.76
+Number of birds with a score over mean score: 84
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 70
+Mean score: 33.88
+Number of birds with a score over mean score: 68
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 583
+Mean score: 157.3667
+Number of birds with a score over mean score: 41
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 195
+Mean score: 91.36
+Number of birds with a score over mean score: 103
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 957
+Mean score: 295.0733
+Number of birds with a score over mean score: 72
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 421
+Mean score: 103.92
+Number of birds with a score over mean score: 41
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 61
+Mean score: 47.62
+Number of birds with a score over mean score: 124
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 2066
+Mean score: 254.14
+Number of birds with a score over mean score: 34
+Pipes passed: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 890
+Mean score: 135.3067
+Number of birds with a score over mean score: 28
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 740
+Mean score: 404.8133
+Number of birds with a score over mean score: 79
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 2461
+Mean score: 713.1866
+Number of birds with a score over mean score: 54
+Pipes passed: 32
+-------------------------------------------------------------------------------
+
+
+Highest score: 267
+Mean score: 9.293333
+Number of birds with a score over mean score: 8
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 188
+Mean score: 27.80667
+Number of birds with a score over mean score: 1
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 402
+Mean score: 119.3067
+Number of birds with a score over mean score: 52
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 928
+Mean score: 290.7067
+Number of birds with a score over mean score: 81
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 824
+Mean score: 46.93333
+Number of birds with a score over mean score: 33
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 363
+Mean score: 145.04
+Number of birds with a score over mean score: 49
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 892
+Mean score: 168.2267
+Number of birds with a score over mean score: 37
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 177
+Mean score: 16.63333
+Number of birds with a score over mean score: 21
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 268
+Mean score: 82.83334
+Number of birds with a score over mean score: 98
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 426
+Mean score: 127.4533
+Number of birds with a score over mean score: 33
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 873
+Mean score: 362.82
+Number of birds with a score over mean score: 62
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 502
+Mean score: 76.75333
+Number of birds with a score over mean score: 88
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 2082
+Mean score: 296.5333
+Number of birds with a score over mean score: 58
+Pipes passed: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 255
+Mean score: 126.1667
+Number of birds with a score over mean score: 92
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 270
+Mean score: 127
+Number of birds with a score over mean score: 75
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 69
+Mean score: 43.09333
+Number of birds with a score over mean score: 94
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 264
+Mean score: 90.65334
+Number of birds with a score over mean score: 80
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 44
+Mean score: 13.81333
+Number of birds with a score over mean score: 47
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 255
+Mean score: 91.74
+Number of birds with a score over mean score: 47
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 663
+Mean score: 178.3733
+Number of birds with a score over mean score: 48
+Pipes passed: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 397
+Mean score: 158.6133
+Number of birds with a score over mean score: 86
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 1607
+Mean score: 381.9133
+Number of birds with a score over mean score: 69
+Pipes passed: 21
+-------------------------------------------------------------------------------
+
+
+Highest score: 1153
+Mean score: 50.84667
+Number of birds with a score over mean score: 37
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1043
+Mean score: 233.22
+Number of birds with a score over mean score: 65
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 905
+Mean score: 234.8667
+Number of birds with a score over mean score: 55
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1693
+Mean score: 141.1333
+Number of birds with a score over mean score: 63
+Pipes passed: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 582
+Mean score: 184.5133
+Number of birds with a score over mean score: 58
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 1243
+Mean score: 248.7467
+Number of birds with a score over mean score: 57
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 661
+Mean score: 111.0533
+Number of birds with a score over mean score: 21
+Pipes passed: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 2478
+Mean score: 369.0733
+Number of birds with a score over mean score: 36
+Pipes passed: 32
+-------------------------------------------------------------------------------
+
+
+Highest score: 899
+Mean score: 312.4467
+Number of birds with a score over mean score: 67
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1529
+Mean score: 237.56
+Number of birds with a score over mean score: 70
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 1021
+Mean score: 292.78
+Number of birds with a score over mean score: 55
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 1989
+Mean score: 280.5533
+Number of birds with a score over mean score: 51
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 1526
+Mean score: 98.1
+Number of birds with a score over mean score: 88
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 1526
+Mean score: 236.4
+Number of birds with a score over mean score: 66
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 2005
+Mean score: 268.2533
+Number of birds with a score over mean score: 59
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 498
+Mean score: 212.8933
+Number of birds with a score over mean score: 58
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 1247
+Mean score: 475.8467
+Number of birds with a score over mean score: 66
+Pipes passed: 16
+-------------------------------------------------------------------------------
+
+
+Highest score: 1345
+Mean score: 273.5133
+Number of birds with a score over mean score: 105
+Pipes passed: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 1528
+Mean score: 194.2067
+Number of birds with a score over mean score: 39
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 940
+Mean score: 203.06
+Number of birds with a score over mean score: 95
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 536
+Mean score: 234.3733
+Number of birds with a score over mean score: 39
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 2165
+Mean score: 414.0933
+Number of birds with a score over mean score: 65
+Pipes passed: 28
+-------------------------------------------------------------------------------
+
+
+Highest score: 1690
+Mean score: 178.5333
+Number of birds with a score over mean score: 54
+Pipes passed: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 35
+Mean score: 29.60667
+Number of birds with a score over mean score: 117
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 498
+Mean score: 227.6067
+Number of birds with a score over mean score: 61
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 1558
+Mean score: 267.2333
+Number of birds with a score over mean score: 24
+Pipes passed: 21
+-------------------------------------------------------------------------------
+
+
+Highest score: 1968
+Mean score: 458.62
+Number of birds with a score over mean score: 55
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 818
+Mean score: 137.6133
+Number of birds with a score over mean score: 32
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 424
+Mean score: 83.29333
+Number of birds with a score over mean score: 43
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 3812
+Mean score: 549.0533
+Number of birds with a score over mean score: 53
+Pipes passed: 49
+-------------------------------------------------------------------------------
+
+
+Highest score: 2077
+Mean score: 415.9867
+Number of birds with a score over mean score: 61
+Pipes passed: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 81
+Mean score: 55.76
+Number of birds with a score over mean score: 105
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 2387
+Mean score: 144.8867
+Number of birds with a score over mean score: 44
+Pipes passed: 31
+-------------------------------------------------------------------------------
+
+
+Highest score: 1908
+Mean score: 488.84
+Number of birds with a score over mean score: 86
+Pipes passed: 25
+-------------------------------------------------------------------------------
+
+
+Highest score: 351
+Mean score: 30.6
+Number of birds with a score over mean score: 25
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 1330
+Mean score: 199.0667
+Number of birds with a score over mean score: 72
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 433
+Mean score: 119.88
+Number of birds with a score over mean score: 35
+Pipes passed: 6
+-------------------------------------------------------------------------------
+
+
+Highest score: 559
+Mean score: 338.1933
+Number of birds with a score over mean score: 92
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 1328
+Mean score: 243.5533
+Number of birds with a score over mean score: 32
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 741
+Mean score: 389.2867
+Number of birds with a score over mean score: 87
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 1949
+Mean score: 549.8267
+Number of birds with a score over mean score: 79
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 1305
+Mean score: 169.7067
+Number of birds with a score over mean score: 20
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 655
+Mean score: 85.27333
+Number of birds with a score over mean score: 29
+Pipes passed: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 342
+Mean score: 169.7867
+Number of birds with a score over mean score: 92
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 2589
+Mean score: 281.2067
+Number of birds with a score over mean score: 65
+Pipes passed: 34
+-------------------------------------------------------------------------------
+
+
+Highest score: 660
+Mean score: 131.1467
+Number of birds with a score over mean score: 76
+Pipes passed: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 2449
+Mean score: 467.6667
+Number of birds with a score over mean score: 54
+Pipes passed: 32
+-------------------------------------------------------------------------------
+
+
+Highest score: 889
+Mean score: 352.8533
+Number of birds with a score over mean score: 68
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1085
+Mean score: 110.1733
+Number of birds with a score over mean score: 101
+Pipes passed: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 3155
+Mean score: 755.7933
+Number of birds with a score over mean score: 49
+Pipes passed: 41
+-------------------------------------------------------------------------------
+
+
+Highest score: 1359
+Mean score: 139.52
+Number of birds with a score over mean score: 63
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 1517
+Mean score: 146.7267
+Number of birds with a score over mean score: 56
+Pipes passed: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 970
+Mean score: 128.9267
+Number of birds with a score over mean score: 34
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 504
+Mean score: 121.3133
+Number of birds with a score over mean score: 30
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 327
+Mean score: 160.06
+Number of birds with a score over mean score: 93
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 37
+Mean score: 12.72667
+Number of birds with a score over mean score: 43
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 553
+Mean score: 272.0667
+Number of birds with a score over mean score: 68
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 70
+Mean score: 39.22667
+Number of birds with a score over mean score: 85
+Pipes passed: 1
+-------------------------------------------------------------------------------
+
+
+Highest score: 1373
+Mean score: 184.64
+Number of birds with a score over mean score: 32
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 346
+Mean score: 174.58
+Number of birds with a score over mean score: 65
+Pipes passed: 5
+-------------------------------------------------------------------------------
+
+
+Highest score: 736
+Mean score: 105.0267
+Number of birds with a score over mean score: 45
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 1744
+Mean score: 427.52
+Number of birds with a score over mean score: 44
+Pipes passed: 23
+-------------------------------------------------------------------------------
+
+
+Highest score: 441
+Mean score: 69.56667
+Number of birds with a score over mean score: 22
+Pipes passed: 7
+-------------------------------------------------------------------------------
+
+
+Highest score: 891
+Mean score: 261.0733
+Number of birds with a score over mean score: 62
+Pipes passed: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 1613
+Mean score: 126.9667
+Number of birds with a score over mean score: 25
+Pipes passed: 21
+-------------------------------------------------------------------------------
+
+
+Highest score: 582
+Mean score: 163.16
+Number of birds with a score over mean score: 52
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 1764
+Mean score: 184.44
+Number of birds with a score over mean score: 61
+Pipes passed: 23
+-------------------------------------------------------------------------------
+
+
+Highest score: 1442
+Mean score: 265.0933
+Number of birds with a score over mean score: 50
+Pipes passed: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 263
+Mean score: 38.30667
+Number of birds with a score over mean score: 23
+Pipes passed: 4
+-------------------------------------------------------------------------------
+
+
+Highest score: 167
+Mean score: 81.25333
+Number of birds with a score over mean score: 62
+Pipes passed: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 889
+Mean score: 219.58
+Number of birds with a score over mean score: 41
+Pipes passed: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 555
+Mean score: 294.0467
+Number of birds with a score over mean score: 86
+Pipes passed: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 736
+Mean score: 245.1933
+Number of birds with a score over mean score: 65
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 984
+Mean score: 398.3067
+Number of birds with a score over mean score: 50
+Pipes passed: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1708
+Mean score: 127.3
+Number of birds with a score over mean score: 29
+Pipes passed: 23
+-------------------------------------------------------------------------------
+
+
+Highest score: 1845
+Mean score: 225.5867
+Number of birds with a score over mean score: 84
+Pipes passed: 24
+-------------------------------------------------------------------------------
+
+
+Highest score: 183
+Mean score: 131.14
+Number of birds with a score over mean score: 100
+Pipes passed: 3
+-------------------------------------------------------------------------------
+
+
+Highest score: 2695
+Mean score: 330.72
+Number of birds with a score over mean score: 84
+Pipes passed: 35
+-------------------------------------------------------------------------------
+
+
+Highest score: 1256
+Mean score: 505.7467
+Number of birds with a score over mean score: 97
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 1232
+Mean score: 513.6866
+Number of birds with a score over mean score: 107
+Pipes passed: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 738
+Mean score: 90.76667
+Number of birds with a score over mean score: 55
+Pipes passed: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 1368
+Mean score: 107.8533
+Number of birds with a score over mean score: 47
+Pipes passed: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 1019
+Mean score: 75.82
+Number of birds with a score over mean score: 15
+Pipes passed: 13
+-------------------------------------------------------------------------------
+
+
+Highest score: 2022
+Mean score: 321.4
+Number of birds with a score over mean score: 87
+Pipes passed: 26
+-------------------------------------------------------------------------------
+
+

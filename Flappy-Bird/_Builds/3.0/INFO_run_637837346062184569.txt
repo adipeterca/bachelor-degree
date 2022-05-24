@@ -1,0 +1,894 @@
+Highest score: 1
+Mean score: 23.09167
+Number of birds with a score over mean score: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 24.80833
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 82.825
+Number of birds with a score over mean score: 51
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 74.31667
+Number of birds with a score over mean score: 91
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 102.875
+Number of birds with a score over mean score: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 81.95834
+Number of birds with a score over mean score: 44
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 86.95834
+Number of birds with a score over mean score: 62
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 93.25833
+Number of birds with a score over mean score: 63
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 124.575
+Number of birds with a score over mean score: 42
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 96.81667
+Number of birds with a score over mean score: 56
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 111.8667
+Number of birds with a score over mean score: 43
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 119.3667
+Number of birds with a score over mean score: 49
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 94.6
+Number of birds with a score over mean score: 43
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 141.4083
+Number of birds with a score over mean score: 48
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 85.03333
+Number of birds with a score over mean score: 102
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 116.4667
+Number of birds with a score over mean score: 49
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 111.8917
+Number of birds with a score over mean score: 46
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 108.8583
+Number of birds with a score over mean score: 15
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 81.35
+Number of birds with a score over mean score: 104
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 98.125
+Number of birds with a score over mean score: 72
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 119.5167
+Number of birds with a score over mean score: 52
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 154.8917
+Number of birds with a score over mean score: 59
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 87.78333
+Number of birds with a score over mean score: 108
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 136.325
+Number of birds with a score over mean score: 64
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 109.6917
+Number of birds with a score over mean score: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 4
+Mean score: 100.075
+Number of birds with a score over mean score: 29
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 142.2333
+Number of birds with a score over mean score: 43
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 147.4917
+Number of birds with a score over mean score: 59
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 90.35833
+Number of birds with a score over mean score: 108
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 116.025
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 102.825
+Number of birds with a score over mean score: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 96.825
+Number of birds with a score over mean score: 44
+-------------------------------------------------------------------------------
+
+
+Highest score: 7
+Mean score: 147.5417
+Number of birds with a score over mean score: 34
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 118.6167
+Number of birds with a score over mean score: 52
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 142.4333
+Number of birds with a score over mean score: 80
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 98.625
+Number of birds with a score over mean score: 69
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 112.1167
+Number of birds with a score over mean score: 47
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 145.8833
+Number of birds with a score over mean score: 34
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 96.15
+Number of birds with a score over mean score: 93
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 89.61667
+Number of birds with a score over mean score: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 122.3667
+Number of birds with a score over mean score: 25
+-------------------------------------------------------------------------------
+
+
+Highest score: 4
+Mean score: 122.4917
+Number of birds with a score over mean score: 41
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 95.58334
+Number of birds with a score over mean score: 70
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 108.15
+Number of birds with a score over mean score: 39
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 107.5083
+Number of birds with a score over mean score: 25
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 124.85
+Number of birds with a score over mean score: 45
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 126.8
+Number of birds with a score over mean score: 26
+-------------------------------------------------------------------------------
+
+
+Highest score: 9
+Mean score: 193.9917
+Number of birds with a score over mean score: 28
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 158.6
+Number of birds with a score over mean score: 83
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 179.4167
+Number of birds with a score over mean score: 87
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 104.6167
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 121.925
+Number of birds with a score over mean score: 40
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 145.75
+Number of birds with a score over mean score: 53
+-------------------------------------------------------------------------------
+
+
+Highest score: 1
+Mean score: 114.0833
+Number of birds with a score over mean score: 36
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 156.4417
+Number of birds with a score over mean score: 75
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 166.0667
+Number of birds with a score over mean score: 61
+-------------------------------------------------------------------------------
+
+
+Highest score: 4
+Mean score: 144.5583
+Number of birds with a score over mean score: 52
+-------------------------------------------------------------------------------
+
+
+Highest score: 11
+Mean score: 205.0917
+Number of birds with a score over mean score: 51
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 219.5417
+Number of birds with a score over mean score: 50
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 117.2333
+Number of birds with a score over mean score: 30
+-------------------------------------------------------------------------------
+
+
+Highest score: 15
+Mean score: 201.6
+Number of birds with a score over mean score: 37
+-------------------------------------------------------------------------------
+
+
+Highest score: 24
+Mean score: 158.6167
+Number of birds with a score over mean score: 42
+-------------------------------------------------------------------------------
+
+
+Highest score: 10
+Mean score: 128.6417
+Number of birds with a score over mean score: 54
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 185.3917
+Number of birds with a score over mean score: 46
+-------------------------------------------------------------------------------
+
+
+Highest score: 10
+Mean score: 270.8
+Number of birds with a score over mean score: 36
+-------------------------------------------------------------------------------
+
+
+Highest score: 2
+Mean score: 90.64167
+Number of birds with a score over mean score: 55
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 185.8917
+Number of birds with a score over mean score: 61
+-------------------------------------------------------------------------------
+
+
+Highest score: 30
+Mean score: 208.6417
+Number of birds with a score over mean score: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 21
+Mean score: 444.7833
+Number of birds with a score over mean score: 34
+-------------------------------------------------------------------------------
+
+
+Highest score: 42
+Mean score: 349.1917
+Number of birds with a score over mean score: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 514.5917
+Number of birds with a score over mean score: 44
+-------------------------------------------------------------------------------
+
+
+Highest score: 27
+Mean score: 588.0583
+Number of birds with a score over mean score: 48
+-------------------------------------------------------------------------------
+
+
+Highest score: 11
+Mean score: 132.7083
+Number of birds with a score over mean score: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 443.9667
+Number of birds with a score over mean score: 44
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 595.325
+Number of birds with a score over mean score: 49
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 84.34167
+Number of birds with a score over mean score: 2
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 209.1667
+Number of birds with a score over mean score: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 22
+Mean score: 306.8333
+Number of birds with a score over mean score: 23
+-------------------------------------------------------------------------------
+
+
+Highest score: 11
+Mean score: 268.625
+Number of birds with a score over mean score: 27
+-------------------------------------------------------------------------------
+
+
+Highest score: 12
+Mean score: 133.5417
+Number of birds with a score over mean score: 35
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 202.7917
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 20
+Mean score: 403.6917
+Number of birds with a score over mean score: 61
+-------------------------------------------------------------------------------
+
+
+Highest score: 30
+Mean score: 417.5833
+Number of birds with a score over mean score: 52
+-------------------------------------------------------------------------------
+
+
+Highest score: 14
+Mean score: 490.675
+Number of birds with a score over mean score: 57
+-------------------------------------------------------------------------------
+
+
+Highest score: 35
+Mean score: 534.4167
+Number of birds with a score over mean score: 44
+-------------------------------------------------------------------------------
+
+
+Highest score: 17
+Mean score: 610.15
+Number of birds with a score over mean score: 50
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 85.19167
+Number of birds with a score over mean score: 12
+-------------------------------------------------------------------------------
+
+
+Highest score: 15
+Mean score: 222.7167
+Number of birds with a score over mean score: 17
+-------------------------------------------------------------------------------
+
+
+Highest score: 12
+Mean score: 281.175
+Number of birds with a score over mean score: 45
+-------------------------------------------------------------------------------
+
+
+Highest score: 12
+Mean score: 163.025
+Number of birds with a score over mean score: 19
+-------------------------------------------------------------------------------
+
+
+Highest score: 16
+Mean score: 317.4583
+Number of birds with a score over mean score: 38
+-------------------------------------------------------------------------------
+
+
+Highest score: 9
+Mean score: 306.0833
+Number of birds with a score over mean score: 75
+-------------------------------------------------------------------------------
+
+
+Highest score: 22
+Mean score: 407.6333
+Number of birds with a score over mean score: 37
+-------------------------------------------------------------------------------
+
+
+Highest score: 38
+Mean score: 515.7584
+Number of birds with a score over mean score: 50
+-------------------------------------------------------------------------------
+
+
+Highest score: 16
+Mean score: 173.125
+Number of birds with a score over mean score: 56
+-------------------------------------------------------------------------------
+
+
+Highest score: 57
+Mean score: 605.65
+Number of birds with a score over mean score: 50
+-------------------------------------------------------------------------------
+
+
+Highest score: 17
+Mean score: 208.9667
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 25
+Mean score: 129.7167
+Number of birds with a score over mean score: 8
+-------------------------------------------------------------------------------
+
+
+Highest score: 30
+Mean score: 364.9667
+Number of birds with a score over mean score: 40
+-------------------------------------------------------------------------------
+
+
+Highest score: 49
+Mean score: 505.5167
+Number of birds with a score over mean score: 43
+-------------------------------------------------------------------------------
+
+
+Highest score: 21
+Mean score: 595.2167
+Number of birds with a score over mean score: 47
+-------------------------------------------------------------------------------
+
+
+Highest score: 16
+Mean score: 254.4417
+Number of birds with a score over mean score: 53
+-------------------------------------------------------------------------------
+
+
+Highest score: 14
+Mean score: 195.7167
+Number of birds with a score over mean score: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 27
+Mean score: 135.5167
+Number of birds with a score over mean score: 9
+-------------------------------------------------------------------------------
+
+
+Highest score: 16
+Mean score: 324.8917
+Number of birds with a score over mean score: 34
+-------------------------------------------------------------------------------
+
+
+Highest score: 13
+Mean score: 245.7417
+Number of birds with a score over mean score: 29
+-------------------------------------------------------------------------------
+
+
+Highest score: 39
+Mean score: 655.2667
+Number of birds with a score over mean score: 54
+-------------------------------------------------------------------------------
+
+
+Highest score: 42
+Mean score: 592.125
+Number of birds with a score over mean score: 62
+-------------------------------------------------------------------------------
+
+
+Highest score: 22
+Mean score: 347.675
+Number of birds with a score over mean score: 30
+-------------------------------------------------------------------------------
+
+
+Highest score: 14
+Mean score: 269.0333
+Number of birds with a score over mean score: 25
+-------------------------------------------------------------------------------
+
+
+Highest score: 21
+Mean score: 154.2917
+Number of birds with a score over mean score: 18
+-------------------------------------------------------------------------------
+
+
+Highest score: 56
+Mean score: 824.5084
+Number of birds with a score over mean score: 42
+-------------------------------------------------------------------------------
+
+
+Highest score: 20
+Mean score: 763.2416
+Number of birds with a score over mean score: 67
+-------------------------------------------------------------------------------
+
+
+Highest score: 14
+Mean score: 315.3
+Number of birds with a score over mean score: 33
+-------------------------------------------------------------------------------
+
+
+Highest score: 32
+Mean score: 505.3083
+Number of birds with a score over mean score: 55
+-------------------------------------------------------------------------------
+
+
+Highest score: 20
+Mean score: 447.25
+Number of birds with a score over mean score: 45
+-------------------------------------------------------------------------------
+
+
+Highest score: 17
+Mean score: 193.9
+Number of birds with a score over mean score: 57
+-------------------------------------------------------------------------------
+
+
+Highest score: 5
+Mean score: 110.7167
+Number of birds with a score over mean score: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 22
+Mean score: 502.3417
+Number of birds with a score over mean score: 46
+-------------------------------------------------------------------------------
+
+
+Highest score: 25
+Mean score: 640.4333
+Number of birds with a score over mean score: 54
+-------------------------------------------------------------------------------
+
+
+Highest score: 26
+Mean score: 501.2917
+Number of birds with a score over mean score: 47
+-------------------------------------------------------------------------------
+
+
+Highest score: 42
+Mean score: 758.2167
+Number of birds with a score over mean score: 48
+-------------------------------------------------------------------------------
+
+
+Highest score: 16
+Mean score: 600.0084
+Number of birds with a score over mean score: 66
+-------------------------------------------------------------------------------
+
+
+Highest score: 22
+Mean score: 404.125
+Number of birds with a score over mean score: 35
+-------------------------------------------------------------------------------
+
+
+Highest score: 15
+Mean score: 567.9167
+Number of birds with a score over mean score: 63
+-------------------------------------------------------------------------------
+
+
+Highest score: 29
+Mean score: 578.7917
+Number of birds with a score over mean score: 77
+-------------------------------------------------------------------------------
+
+
+Highest score: 23
+Mean score: 600.2833
+Number of birds with a score over mean score: 67
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 142.9583
+Number of birds with a score over mean score: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 27
+Mean score: 306
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 14
+Mean score: 465.3167
+Number of birds with a score over mean score: 48
+-------------------------------------------------------------------------------
+
+
+Highest score: 12
+Mean score: 236.4167
+Number of birds with a score over mean score: 28
+-------------------------------------------------------------------------------
+
+
+Highest score: 25
+Mean score: 294.7
+Number of birds with a score over mean score: 11
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 98.86667
+Number of birds with a score over mean score: 104
+-------------------------------------------------------------------------------
+
+
+Highest score: 27
+Mean score: 183.4
+Number of birds with a score over mean score: 20
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 167.325
+Number of birds with a score over mean score: 56
+-------------------------------------------------------------------------------
+
+
+Highest score: 3
+Mean score: 168.6417
+Number of birds with a score over mean score: 56
+-------------------------------------------------------------------------------
+
+
+Highest score: 16
+Mean score: 219.5667
+Number of birds with a score over mean score: 21
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 364.1667
+Number of birds with a score over mean score: 53
+-------------------------------------------------------------------------------
+
+
+Highest score: 21
+Mean score: 190.1917
+Number of birds with a score over mean score: 24
+-------------------------------------------------------------------------------
+
+
+Highest score: 36
+Mean score: 286.9
+Number of birds with a score over mean score: 16
+-------------------------------------------------------------------------------
+
+
+Highest score: 40
+Mean score: 330.6917
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
+Highest score: 18
+Mean score: 538.1334
+Number of birds with a score over mean score: 46
+-------------------------------------------------------------------------------
+
+
+Highest score: 28
+Mean score: 637.1667
+Number of birds with a score over mean score: 51
+-------------------------------------------------------------------------------
+
+
+Highest score: 54
+Mean score: 178.4917
+Number of birds with a score over mean score: 10
+-------------------------------------------------------------------------------
+
+
+Highest score: 6
+Mean score: 169.4583
+Number of birds with a score over mean score: 94
+-------------------------------------------------------------------------------
+
+
+Highest score: 30
+Mean score: 376.3583
+Number of birds with a score over mean score: 33
+-------------------------------------------------------------------------------
+
+
+Highest score: 12
+Mean score: 185.2417
+Number of birds with a score over mean score: 14
+-------------------------------------------------------------------------------
+
+
+Highest score: 23
+Mean score: 305.4
+Number of birds with a score over mean score: 31
+-------------------------------------------------------------------------------
+
+
+Highest score: 19
+Mean score: 128.8833
+Number of birds with a score over mean score: 22
+-------------------------------------------------------------------------------
+
+
