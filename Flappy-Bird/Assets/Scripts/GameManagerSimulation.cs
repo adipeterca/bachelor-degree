@@ -10,8 +10,12 @@ using UnityEngine.UI;
 /// </summary>
 public class BestBird
 {
+    // Default score which marks that this is a NULL bird
+    public const int defaultScore = -1;
+
     public NeuralNetwork brain;
-    public int score;
+
+    public int score = defaultScore;
 }
 
 public class GameManagerSimulation : MonoBehaviour
@@ -76,7 +80,7 @@ public class GameManagerSimulation : MonoBehaviour
     private BestBird bestBird = new BestBird();
 
     // Constants
-    private int TIME_SCALE = 1;
+    // private int TIME_SCALE = 1;
 
     // Filename for each run to store information into
     private string filenameInfo = "INFO_run_" + System.DateTime.Now.Ticks + ".txt";
@@ -154,7 +158,7 @@ public class GameManagerSimulation : MonoBehaviour
             return;
 
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
-        Time.timeScale = TIME_SCALE;
+        Time.timeScale = 1;
 
         // Are there any birds left?
         bool noMoreBirds = true;
@@ -258,7 +262,7 @@ public class GameManagerSimulation : MonoBehaviour
         remainingBirdsText.text = "Remaining birds: " + remainingBirds;
 
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
-        Time.timeScale = TIME_SCALE;
+        Time.timeScale = 1;
         // Debug.Log("[INFO] Restarted the game!");
 
         // Play a sound to alert the user that a new generation was started
@@ -288,7 +292,8 @@ public class GameManagerSimulation : MonoBehaviour
         Debug.Log("[INFO] [FROM GameManagerFB.quitSimulation()] Simulation over!");
 
         // Export the best bird
-        bestBird.brain.Export("bestBird.txt");
+        if (bestBird.score != BestBird.defaultScore)
+            bestBird.brain.Export("bestBird.txt");
 
         // Do not quit. Rather, return to main menu.
         // Application.Quit();

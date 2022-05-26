@@ -136,10 +136,6 @@ public class GameManagerSimulationWithScore : MonoBehaviour
     }
     private void Update()
     {
-        // Terminate the application as soon as it has reached the target score
-        if (currentScore >= targetScore)
-            QuitSimulation();
-
         // If the game is stopped, return
         if (Time.timeScale == 0)
             return;
@@ -165,6 +161,10 @@ public class GameManagerSimulationWithScore : MonoBehaviour
         // If no more birds are left, restart the iteration
         if (noMoreBirds)
         {
+            // Terminate the application as soon as it has reached the target score
+            if (currentScore >= targetScore)
+                QuitSimulation();
+
             RestartGame();
             return;
         }
@@ -263,7 +263,8 @@ public class GameManagerSimulationWithScore : MonoBehaviour
     public void QuitSimulation()
     {
         // Export the best bird
-        bestBird.brain.Export("bestBird.txt");
+        if (bestBird.score != BestBird.defaultScore)
+            bestBird.brain.Export("bestBird.txt");
 
         // Do not quit. Rather, return to main menu.
         // Application.Quit();

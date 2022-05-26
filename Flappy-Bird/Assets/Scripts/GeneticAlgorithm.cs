@@ -23,7 +23,7 @@ public class GeneticAlgorithm
     // The old generation of objects
     static GameObject[] oldGeneration;
 
-    static private float fitness(int score)
+    static private float Fitness(int score)
     {
         return score;
     }
@@ -33,7 +33,7 @@ public class GeneticAlgorithm
     /// </summary>
     /// <param name="currentGeneration">the generation to choose from</param>
     /// <returns>a list containing the best K individuals</returns>
-    static private GameObject[] getBestK(GameObject[] currentGeneration)
+    static private GameObject[] GetBestK(GameObject[] currentGeneration)
     {
         if (currentGeneration.Length <= k)
         {
@@ -44,7 +44,7 @@ public class GeneticAlgorithm
         float[] scores = new float[currentGeneration.Length];
         for (int i = 0; i < currentGeneration.Length; i++)
         {
-            scores[i] = fitness(currentGeneration[i].GetComponent<BirdController>().GetScore());
+            scores[i] = Fitness(currentGeneration[i].GetComponent<BirdController>().GetScore());
         }
 
         GameObject auxGO;
@@ -79,14 +79,14 @@ public class GeneticAlgorithm
         return best;
     }
 
-    static private void selection()
+    static private void Selection()
     {
         newGeneration = new GameObject[oldGeneration.Length];
         scores = new float[oldGeneration.Length];
 
         // Calculate the fitness scores
         for (int i = 0; i < oldGeneration.Length; i++)
-            scores[i] = fitness(oldGeneration[i].GetComponent<BirdController>().GetScore());
+            scores[i] = Fitness(oldGeneration[i].GetComponent<BirdController>().GetScore());
 
         // Normalize the fitness values
         float normalizingFactor = 0.0f;
@@ -117,14 +117,14 @@ public class GeneticAlgorithm
         }
 
         // Apply elitism
-        GameObject[] elitismList = getBestK(oldGeneration);
+        GameObject[] elitismList = GetBestK(oldGeneration);
 
         for (int i = 0; i < elitismList.Length; i++)
             newGeneration[i] = elitismList[i];
 
     }
 
-    static private void mutation()
+    static private void Mutation()
     {
         for (int i = 0; i < newGeneration.Length; i++)
         {
@@ -135,7 +135,7 @@ public class GeneticAlgorithm
     /// <summary>
     /// Private function that does the crossover over the new generation of individuals.
     /// </summary>
-    static private void crossover()
+    static private void Crossover()
     {
         // A list containing the chances of each individual to be selected for crossover
         float[] chances = new float[newGeneration.Length];
@@ -202,11 +202,11 @@ public class GeneticAlgorithm
         oldGeneration = currentGeneration;
 
         // Not tested, may not work
-        selection();
+        Selection();
         Debug.Log("Finished selection...");
-        mutation();
+        Mutation();
         Debug.Log("Finished mutation...");
-        crossover();
+        Crossover();
         Debug.Log("Finished crossover...");
 
         // Destroy the old generation of birds
