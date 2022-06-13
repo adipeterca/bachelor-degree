@@ -12,6 +12,9 @@ public class GameManagerConfig : MonoBehaviour
     // Reference for PopulationSizeText object
     public Text populationSizeText;
 
+    // Reference for the Population Text field for the SimulationWithScore settings
+    public Text populationWithScoreSizeText;
+
     // The target score to evolve towards
     public Text targetScoreText;
 
@@ -53,7 +56,25 @@ public class GameManagerConfig : MonoBehaviour
 
         infoText.text = string.Format("<color={0}>[INFO] Select the type of simulation you want to run.</color>", infoColor);
 
-        UpdateSelection();
+        // When first running the application, a default value for the menu configuration is put in place,
+        // so that when returning from any simulation, the selection from the dropdown menu is remembered.
+        if (GlobalManager.GetInstance().dropdownSelection != -1)
+        {
+            menuType = GlobalManager.GetInstance().dropdownSelection;
+            dropdownObject.value = menuType;
+            // Iterate through all menus and hide the ones which are not needed.
+            for (int i = 0; i < menuArray.Length; i++)
+            {
+                menuArray[i].SetActive(false);
+            }
+
+            // Display only the selected one
+            menuArray[menuType].SetActive(true);
+        }
+        else
+        {
+            UpdateSelection();
+        }
     }
 
     /// <summary>
@@ -113,15 +134,25 @@ public class GameManagerConfig : MonoBehaviour
     public void UpdateSelection()
     {
         string selected = dropdownObject.options[dropdownObject.value].text;
+        GlobalManager.GetInstance().dropdownSelection = 0;
 
         Debug.Log("Selected " + selected);
 
         if (selected == "Simulate evolution")
+        {
             menuType = 0;
+            GlobalManager.GetInstance().dropdownSelection = 0;
+        }
         else if (selected == "Test a bird")
+        {
             menuType = 1;
+            GlobalManager.GetInstance().dropdownSelection = 1;
+        }
         else if (selected == "Simulate evolution with score")
+        {
             menuType = 2;
+            GlobalManager.GetInstance().dropdownSelection = 2;
+        }
 
         // Iterate through all menus and hide the ones which are not needed.
         for (int i = 0; i < menuArray.Length; i++)
@@ -198,7 +229,7 @@ public class GameManagerConfig : MonoBehaviour
         bool containsErrors = false;
 
         // Assign default value "./brain.txt"
-        string filepath = (pathText.text == "" ? "./brain.txt" : pathText.text);
+        string filepath = (pathText.text == "" ? "bestBird.txt" : pathText.text);
         if (System.IO.File.Exists(filepath))
         {
             info += string.Format("<color={0}>[INFO] File path set to '" + filepath + "'.</color>\n", infoColor);
@@ -238,8 +269,8 @@ public class GameManagerConfig : MonoBehaviour
             info += string.Format("<color={0}>[ERROR] Target score must be a positive number!</color>\n", errorColor);
             containsErrors = true;
         }
-        if (populationSizeText.text == "" || ValidateInput(populationSizeText.text))
-            info += string.Format("<color={0}>[INFO] Population size number : " + (populationSizeText.text == "" ? "100" : populationSizeText.text) + "</color>\n", infoColor);
+        if (populationWithScoreSizeText.text == "" || ValidateInput(populationWithScoreSizeText.text))
+            info += string.Format("<color={0}>[INFO] Population size number : " + (populationWithScoreSizeText.text == "" ? "100" : populationWithScoreSizeText.text) + "</color>\n", infoColor);
         else
         {
             info += string.Format("<color={0}>[ERROR] Population size must be a positive number!</color>\n", errorColor);
@@ -254,7 +285,7 @@ public class GameManagerConfig : MonoBehaviour
             return;
 
         int targetScore = (targetScoreText.text == "" ? 150 : int.Parse(targetScoreText.text));
-        int populationSize = (populationSizeText.text == "" ? 100 : int.Parse(populationSizeText.text));
+        int populationSize = (populationWithScoreSizeText.text == "" ? 100 : int.Parse(populationWithScoreSizeText.text));
 
         // Store the values for future use
         GlobalManager.GetInstance().targetScore = targetScore;
@@ -295,7 +326,7 @@ public class GameManagerConfig : MonoBehaviour
     /// <returns>true if the number is positive, false otherwise</returns>
     private bool ValidateInput(string number)
     {
-        return number[0] != '-';
+        return number[0] != '-' && int.Parse(number) > 0;
     }
 
     /// <summary>

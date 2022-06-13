@@ -1,0 +1,20 @@
+Iteration for generation: 1
+Number of individuals: 12
+Highest score (number of passed pipes): 0
+-------------------------------------------------------------------------------
+
+Iteration for generation: 2
+Number of individuals: 12
+Highest score (number of passed pipes): 0
+-------------------------------------------------------------------------------
+
+Iteration for generation: 3
+Number of individuals: 12
+Highest score (number of passed pipes): 0
+-------------------------------------------------------------------------------
+
+Iteration for generation: 4
+Number of individuals: 12
+Highest score (number of passed pipes): 0
+-------------------------------------------------------------------------------
+

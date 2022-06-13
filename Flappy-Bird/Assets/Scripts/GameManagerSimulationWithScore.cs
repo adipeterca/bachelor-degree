@@ -66,11 +66,8 @@ public class GameManagerSimulationWithScore : MonoBehaviour
     // Best performing bird of all times
     private BestBird bestBird = new BestBird();
 
-    // Constants
-    private int TIME_SCALE = 1;
-
     // Filename for each run to store information into
-    private string filenameInfo = "INFO_run_" + System.DateTime.Now.Ticks + ".txt";
+    private string filenameInfo = "ScoreSimulation_" + System.DateTime.Now.Ticks + ".txt";
 
     private GameManagerSimulationWithScore() { }
 
@@ -93,18 +90,12 @@ public class GameManagerSimulationWithScore : MonoBehaviour
 
     private void Start()
     {
-        // Framerate settings
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
-
         // Load values from ConfigScene
         targetScore = GlobalManager.GetInstance().targetScore;
         populationSize = GlobalManager.GetInstance().populationSize;
 
         // Mark the reference as a prefab
         pipeReference.GetComponent<PipeController>().MarkAsPrefab();
-
-        lastCreatedPipe = Instantiate(pipeReference);
 
         pipesSpawnLocation = pipeReference.transform.position + pipeReference.GetComponent<PipeController>().spawnPosition;
 
@@ -141,7 +132,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
             return;
 
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
-        Time.timeScale = TIME_SCALE;
+        Time.timeScale = 1;
 
         // Are there any birds left?
         bool noMoreBirds = true;
@@ -170,7 +161,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
         }
 
         // Check the distance between the last created pipe and the original start point
-        if (pipesSpawnLocation.x - lastCreatedPipe.transform.position.x > distanceBetweenPipes)
+        if (lastCreatedPipe == null || pipesSpawnLocation.x - lastCreatedPipe.transform.position.x > distanceBetweenPipes)
         {
             lastCreatedPipe = Instantiate(pipeReference);
             // Debug.Log("Created a new pipe!");
@@ -191,25 +182,32 @@ public class GameManagerSimulationWithScore : MonoBehaviour
         // Write relevant information to INFO file
         using (System.IO.StreamWriter foutInfo = System.IO.File.AppendText(filenameInfo))
         {
-            foutInfo.WriteLine("Highest score: " + currentScore);
+            foutInfo.WriteLine("Iteration for generation: " + generationCount);
+            foutInfo.WriteLine("Number of individuals: " + birds.Length);
+            foutInfo.WriteLine("Highest score (number of passed pipes): " + currentScore);
 
-            int totalScore = 0;
-            for (int i = 0; i < birds.Length; i++)
+            if (currentScore != 0)
             {
-                totalScore += birds[i].GetComponent<BirdController>().GetScore();
-                Debug.Log("[DEBUG] [FROM GameManagerFB.restartGame()] totalScore: " + totalScore);
+                // Here we make an average of the number of passed pipes, because
+                // it is more important and relevant than the score (points), which is used
+                // only by the fitness function.
+                float totalPassedPipes = 0;
+                for (int i = 0; i < birds.Length; i++)
+                {
+                    totalPassedPipes += birds[i].GetComponent<BirdController>().GetPassedPipes();
+                }
+                Debug.Log("[DEBUG] [FROM GameManagerSimulationWithScore.RestartGame()] totalPassedPipes : " + totalPassedPipes);
+
+                float mean = totalPassedPipes / birds.Length;
+                foutInfo.WriteLine("Average number of passed pipes: " + mean);
+
+                int birdsOverMean = 0;
+                for (int i = 0; i < birds.Length; i++)
+                    if (birds[i].GetComponent<BirdController>().GetPassedPipes() >= mean)
+                        birdsOverMean++;
+                foutInfo.WriteLine("Number of birds which passed more pipes, on average: " + birdsOverMean);
             }
-            float mean = ((float)totalScore) / birds.Length;
-            foutInfo.WriteLine("Mean score: " + mean);
-
-            int birdsOverMean = 0;
-            for (int i = 0; i < birds.Length; i++)
-                if (birds[i].GetComponent<BirdController>().GetScore() >= mean)
-                    birdsOverMean++;
-            foutInfo.WriteLine("Number of birds with a score over mean score: " + birdsOverMean);
-
-            // foutInfo.WriteLine("Pipes passed: " + passedPipesText.text);
-            foutInfo.WriteLine("-------------------------------------------------------------------------------\n\n");
+            foutInfo.WriteLine("-------------------------------------------------------------------------------\n");
         }
 
         // Retain a copy of the best bird until this moment
@@ -249,7 +247,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
         remainingBirdsText.text = "Remaining birds: " + remainingBirds;
 
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
-        Time.timeScale = TIME_SCALE;
+        Time.timeScale = 1;
         // Debug.Log("[INFO] Restarted the game!");
 
         // Play a sound to alert the user that a new generation was started
@@ -278,6 +276,11 @@ public class GameManagerSimulationWithScore : MonoBehaviour
     /// </summary>
     public void IncreaseScore()
     {
+        // For each active bird, increase it's number of passed pipes.
+        for (int i = 0; i < birds.Length; i++)
+            if (!birds[i].GetComponent<BirdController>().GetHitStatus())
+                birds[i].GetComponent<BirdController>().IncreasePassedPipes();
+
         // Update score information
         currentScore++;
         currentScoreText.text = "Current score: " + currentScore;

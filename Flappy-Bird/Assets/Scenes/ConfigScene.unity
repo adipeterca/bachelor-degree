@@ -606,7 +606,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ./brain.txt
+  m_Text: bestBird.txt
 --- !u!222 &479081011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2876,6 +2876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxGenCountText: {fileID: 2095169053}
   populationSizeText: {fileID: 1060826055}
+  populationWithScoreSizeText: {fileID: 602683235}
   targetScoreText: {fileID: 516228483}
   infoText: {fileID: 891461580}
   dropdownObject: {fileID: 793994583}

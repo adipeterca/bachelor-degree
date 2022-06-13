@@ -23,6 +23,9 @@ public class BirdController : MonoBehaviour
     // The score associated with this bird
     private int score;
 
+    // Total number of passed pipes by this individual
+    private int passedPipes;
+
     // Is this GameObject a prefab?
     private bool isPrefab = false;
 
@@ -123,9 +126,6 @@ public class BirdController : MonoBehaviour
             // Set bottom pipe y position
             inputs.set(4, 0, (closestPipe.transform.position.y - 2.0f) / 4.5f);
 
-            // Debug.Log("[DEBUG] [FROM BirdController.Update()] closestPipe transform position: " + closestPipe.transform.position);
-            // Debug.Log("[DEBUG] [FROM BirdController.Update()] Given as input: <color=#00ff00>" + inputs + "</color>");
-
             if (brain.Guess(inputs) == 1)
                 Jump();
 
@@ -138,7 +138,7 @@ public class BirdController : MonoBehaviour
     /// Private function used for setting initial values to some variables of this class.
     /// It was created because in Start() only references are set (the Start() function calls this function too).
     /// </summary>
-    void InitState()
+    private void InitState()
     {
         // Other default values
         // Mass = 10
@@ -147,6 +147,9 @@ public class BirdController : MonoBehaviour
 
         // Initial score value
         score = 0;
+
+        // Initial number of passed pipes
+        passedPipes = 0;
 
         // Set hit status
         hitStatus = false;
@@ -209,6 +212,14 @@ public class BirdController : MonoBehaviour
     }
 
     /// <summary>
+    /// Public method called when this individual passes a pipe.
+    /// </summary>
+    public void IncreasePassedPipes()
+    {
+        passedPipes++;
+    }
+
+    /// <summary>
     /// Public method which marks this object as a prefab (makes it inactive and it does not interact with the enviroment).
     /// </summary>
     public void MarkAsPrefab()
@@ -223,6 +234,15 @@ public class BirdController : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    /// <summary>
+    /// Getter for the number of passed pipes by this individual.
+    /// </summary>
+    /// <returns>number of passed pipes</returns>
+    public int GetPassedPipes()
+    {
+        return passedPipes;
     }
 
     /// <summary>

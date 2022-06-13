@@ -74,14 +74,8 @@ public class GameManagerTest : MonoBehaviour
 
     private void Start()
     {
-        // Framerate settings
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
-
         // Mark the reference as a prefab
         pipeReference.GetComponent<PipeController>().MarkAsPrefab();
-
-        lastCreatedPipe = Instantiate(pipeReference);
 
         pipesSpawnLocation = pipeReference.transform.position + pipeReference.GetComponent<PipeController>().spawnPosition;
 
@@ -117,7 +111,7 @@ public class GameManagerTest : MonoBehaviour
         }
 
         // Check the distance between the last created pipe and the original start point
-        if (pipesSpawnLocation.x - lastCreatedPipe.transform.position.x > distanceBetweenPipes)
+        if (lastCreatedPipe == null || pipesSpawnLocation.x - lastCreatedPipe.transform.position.x > distanceBetweenPipes)
         {
             lastCreatedPipe = Instantiate(pipeReference);
             // Debug.Log("Created a new pipe!");
