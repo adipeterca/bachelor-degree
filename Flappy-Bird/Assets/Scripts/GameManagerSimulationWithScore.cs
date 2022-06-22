@@ -114,7 +114,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
         generationCountText.text = "Generation: " + generationCount;
 
         // Set the current score
-        currentScoreText.text = "Current score: " + currentScore;
+        currentScoreText.text = "Current score: " + currentScore + " / " + targetScore;
 
         // Set the number of remaining birds
         remainingBirds = populationSize;
@@ -147,7 +147,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
         }
 
         // Update text information
-        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds + " / " + populationSize;
 
         // If no more birds are left, restart the iteration
         if (noMoreBirds)
@@ -240,7 +240,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
 
         // Set the current score
         currentScore = 0;
-        currentScoreText.text = "Current score: " + currentScore;
+        currentScoreText.text = "Current score: " + currentScore + " / " + targetScore;
 
         // Set the number of remaining birds
         remainingBirds = populationSize;
@@ -283,7 +283,7 @@ public class GameManagerSimulationWithScore : MonoBehaviour
 
         // Update score information
         currentScore++;
-        currentScoreText.text = "Current score: " + currentScore;
+        currentScoreText.text = "Current score: " + currentScore + " / " + targetScore;
 
         // Update highest score
         if (currentScore > highestScore)

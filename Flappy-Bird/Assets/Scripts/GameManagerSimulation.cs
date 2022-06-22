@@ -131,7 +131,7 @@ public class GameManagerSimulation : MonoBehaviour
 
         // Set the number of remaining birds
         remainingBirds = populationSize;
-        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds + " / " + populationSize;
 
         // Set the highest score
         highestScoreText.text = "Highest score: " + highestScore;
@@ -164,7 +164,7 @@ public class GameManagerSimulation : MonoBehaviour
         }
 
         // Update text information
-        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds + " / " + populationSize;
 
         // If no more birds are left, restart the iteration
         if (noMoreBirds)
@@ -258,7 +258,7 @@ public class GameManagerSimulation : MonoBehaviour
 
         // Set the number of remaining birds
         remainingBirds = populationSize;
-        remainingBirdsText.text = "Remaining birds: " + remainingBirds;
+        remainingBirdsText.text = "Remaining birds: " + remainingBirds + " / " + populationSize;
 
         // Set the speed game (DO NOT SPEED UP THE GAME, IT DOES NOT WORK LIKE THAT!)
         Time.timeScale = 1;
